@@ -1,4 +1,4 @@
-// FutbolBirlik Platform - JavaScript İşlevləri
+// MatchArena Platform - JavaScript İşlevləri
 
 // Declare the data variable
 const data = {
@@ -358,17 +358,17 @@ function loadDetailPageData() {
 // Oyunçu Detail Səhifəsini Doldurma
 function populatePlayerDetail(player) {
   // Burada HTML-də mövcud olan elementlər varsa, məlumatları əvəz edə biləriz
-  document.title = `${player.name} - FutbolBirlik`;
+  document.title = `${player.name} - MatchArena`;
 }
 
 // Komanda Detail Səhifəsini Doldurma
 function populateTeamDetail(team) {
-  document.title = `${team.name} - FutbolBirlik`;
+  document.title = `${team.name} - MatchArena`;
 }
 
 // Meydança Detail Səhifəsini Doldurma
 function populateFieldDetail(field) {
-  document.title = `${field.name} - FutbolBirlik`;
+  document.title = `${field.name} - MatchArena`;
 }
 
 // Səhifə yükləndikdə detail səhifə məlumatlarını yüklə

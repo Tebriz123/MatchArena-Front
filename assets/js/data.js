@@ -1,4 +1,4 @@
-// FutbolBirlik Platform - Statik Məlumatlar
+// MatchArena Platform - Statik Məlumatlar
 
 const data = {
   players: [

@@ -1,5 +1,5 @@
 // Role-Based Access Control System
-// FutbolBirlik Platform Authentication & Authorization
+// MatchArena Platform Authentication & Authorization
 
 // Role definitions with permissions
 const ROLES = {

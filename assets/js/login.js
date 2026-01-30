@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function loginAsAdmin() {
     const adminUser = {
         id: 1,
-        email: 'admin@futbolbirlik.az',
+        email: 'admin@matcharena.az',
         name: 'Admin',
         role: 'admin',
         isActive: true,
@@ -56,7 +56,7 @@ function loginAsAdmin() {
 function loginAsCaptain() {
     const captainUser = {
         id: 2,
-        email: 'captain@futbolbirlik.az',
+        email: 'captain@matcharena.az',
         name: 'Kapitan Əli',
         role: 'captain',
         isActive: true,
@@ -75,7 +75,7 @@ function loginAsCaptain() {
 function loginAsFieldOwner() {
     const fieldOwnerUser = {
         id: 3,
-        email: 'owner@futbolbirlik.az',
+        email: 'owner@matcharena.az',
         name: 'Meydança Sahibi',
         role: 'field-owner',
         isActive: true,
@@ -94,7 +94,7 @@ function loginAsFieldOwner() {
 function loginAsOrganizer() {
     const organizerUser = {
         id: 4,
-        email: 'organizer@futbolbirlik.az',
+        email: 'organizer@matcharena.az',
         name: 'Təşkilatçı',
         role: 'organizer',
         isActive: true,

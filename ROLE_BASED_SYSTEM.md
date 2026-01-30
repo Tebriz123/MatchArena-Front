@@ -1,7 +1,7 @@
-# Role-Based Access Control System - FutbolBirlik
+# Role-Based Access Control System - MatchArena
 
 ## 📋 Overview
-Complete role-based authentication and authorization system implemented for the FutbolBirlik platform.
+Complete role-based authentication and authorization system implemented for the MatchArena platform.
 
 ## 🎭 Roles & Permissions
 
