@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutbolBirlik - Football Platform</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <span class="user-name">Daxil ol</span>
+                <button class="login-btn">Qeydiyyat</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero">
+            <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 1rem;">Bizə qoşulun</p>
+            <h1>Futbol sevginizi <span class="hero-green">birlikdə yaşayın</span></h1>
+            <p class="hero-subtitle">Oyunçular, komandalar, meydançalar, turnilər - hamısı bir yerdə. İdeal futbol plaformasına xoş gəldiniz.</p>
+            <div class="hero-buttons">
+                <a href="players.html" class="btn btn-primary">Başla edin</a>
+                <a href="tournaments.html" class="btn btn-secondary">Turnirləri kəşf edin</a>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">2,500+</div>
+                <div class="stat-label">Oyunçular</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Stadionlar</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">85+</div>
+                <div class="stat-label">Turnir</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Hər şey bir yerdə</h2>
+        <p class="section-subtitle">Futbol səvərlərinin tələb etdiyi bütün xidmətlər platformamızda mövcuddur.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(59, 130, 246, 0.1); color: #3b82f6;">👤</div>
+                <h3>Komanda Qurma</h3>
+                <p>Dostlarınızla komanda yaradın və meydançada birinə çatın.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(249, 115, 22, 0.1); color: #f97316;">⚽</div>
+                <h3>Meydança Icarəsi</h3>
+                <p>Ən yaxşı meydançaları rezerv edin və oyna.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">🏆</div>
+                <h3>Turnir Düzəltmə</h3>
+                <p>Öz turnirini dəstək edin və çempion ol.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(34, 197, 94, 0.1); color: var(--primary-color);">📊</div>
+                <h3>Statistika</h3>
+                <p>Rəqəmlər, qaydalar, və ətraflı analitika.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(168, 85, 247, 0.1); color: #a855f7;">🤝</div>
+                <h3>Şəbəkə</h3>
+                <p>Həmçin futbolçuları tapın və bağlantı yaradın.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon" style="background-color: rgba(236, 72, 153, 0.1); color: #ec4899;">⭐</div>
+                <h3>Reytinq Sistemi</h3>
+                <p>Performansınız əsasında reytinq alın.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Ən yaxşı oyunçular</h2>
+        <p class="section-subtitle">Platform üzərində ən yaxşı oyunçuları görmək üçün klikləyin.</p>
+        
+        <div class="cards-grid">
+            <div class="player-card">
+                <div class="card-image"><span>N</span><div class="rating">⭐ 4.9</div></div>
+                <div class="card-content">
+                    <div class="team-badge">Qapiçi</div>
+                    <h3 class="card-title">Nihad Qasimov</h3>
+                    <div class="card-subtitle">30 yaş • 🏠 Baki</div>
+                    <div class="card-stats"><div class="stat-item"><div class="stat-item-value">312</div><div class="stat-item-label">oyun</div></div></div>
+                    <div class="card-buttons"><a href="player-detail.html?id=1" class="btn-small">Profil bax</a></div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <div class="card-image"><span>T</span><div class="rating">⭐ 4.8</div></div>
+                <div class="card-content">
+                    <div class="team-badge">Hücumçu</div>
+                    <h3 class="card-title">Tural Mammadov</h3>
+                    <div class="card-subtitle">25 yaş • 🏠 Baki</div>
+                    <div class="card-stats"><div class="stat-item"><div class="stat-item-value">156</div><div class="stat-item-label">oyun</div></div></div>
+                    <div class="card-buttons"><a href="player-detail.html?id=2" class="btn-small">Profil bax</a></div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <div class="card-image"><span>E</span><div class="rating">⭐ 4.7</div></div>
+                <div class="card-content">
+                    <div class="team-badge">Müdafiə</div>
+                    <h3 class="card-title">Elvin Hüseynov</h3>
+                    <div class="card-subtitle">23 yaş • 🏠 Sumqayıt</div>
+                    <div class="card-stats"><div class="stat-item"><div class="stat-item-value">89</div><div class="stat-item-label">oyun</div></div></div>
+                    <div class="card-buttons"><a href="player-detail.html?id=3" class="btn-small">Profil bax</a></div>
+                </div>
+            </div>
+
+            <div class="player-card">
+                <div class="card-image"><span>R</span><div class="rating">⭐ 4.6</div></div>
+                <div class="card-content">
+                    <div class="team-badge">Yarımqapı</div>
+                    <h3 class="card-title">Rəşad Biliyev</h3>
+                    <div class="card-subtitle">28 yaş • 🏠 Baki</div>
+                    <div class="card-stats"><div class="stat-item"><div class="stat-item-value">203</div><div class="stat-item-label">oyun</div></div></div>
+                    <div class="card-buttons"><a href="player-detail.html?id=4" class="btn-small">Profil bax</a></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Aktiv komandalar</h2>
+        <p class="section-subtitle">Ən populyar komandaların bir siyahısı.</p>
+
+        <div class="cards-grid">
+            <div class="team-card">
+                <div class="card-image">Q</div>
+                <div class="card-content">
+                    <div class="team-badge">Oyunçu axtarır</div>
+                    <h3 class="card-title">Qarabag Legends</h3>
+                    <div class="card-subtitle">Kapitain: Öli Kazimov • 🏠 Baki</div>
+                    <div class="card-stats">
+                        <div class="stat-item"><div class="stat-item-value">15/15</div><div class="stat-item-label">qolaça</div></div>
+                        <div class="stat-item"><div class="stat-item-value">4.9</div><div class="stat-item-label">⭐</div></div>
+                        <div class="stat-item"><div class="stat-item-value">67</div><div class="stat-item-label">qolaça</div></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="team-detail.html?id=1" class="btn-small">Profil bax</a>
+                        <button class="btn-small btn-small-secondary">Qoşul</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-image">G</div>
+                <div class="card-content">
+                    <div class="team-badge">Oyunçu axtarır</div>
+                    <h3 class="card-title">Gəncə FC</h3>
+                    <div class="card-subtitle">Kapitain: Elvin Hüseynov • 🏠 Gəncə</div>
+                    <div class="card-stats">
+                        <div class="stat-item"><div class="stat-item-value">14/15</div><div class="stat-item-label">qolaça</div></div>
+                        <div class="stat-item"><div class="stat-item-value">4.8</div><div class="stat-item-label">⭐</div></div>
+                        <div class="stat-item"><div class="stat-item-value">58</div><div class="stat-item-label">qolaça</div></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="team-detail.html?id=2" class="btn-small">Profil bax</a>
+                        <button class="btn-small btn-small-secondary">Qoşul</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-image">F</div>
+                <div class="card-content">
+                    <div class="team-badge">Oyunçu axtarır</div>
+                    <h3 class="card-title">FC Baki</h3>
+                    <div class="card-subtitle">Kapitain: Tural Mammadov • 🏠 Baki</div>
+                    <div class="card-stats">
+                        <div class="stat-item"><div class="stat-item-value">12/15</div><div class="stat-item-label">qolaça</div></div>
+                        <div class="stat-item"><div class="stat-item-value">4.7</div><div class="stat-item-label">⭐</div></div>
+                        <div class="stat-item"><div class="stat-item-value">45</div><div class="stat-item-label">qolaça</div></div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="team-detail.html?id=3" class="btn-small">Profil bax</a>
+                        <button class="btn-small btn-small-secondary">Qoşul</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Meydança rezervasiyası</h2>
+        <p class="section-subtitle">Ən populyar futbol meydançaları siyahıda.</p>
+
+        <div class="cards-grid">
+            <div class="field-card">
+                <div class="card-image"><div class="rating">⭐ 4.5</div></div>
+                <div class="card-content">
+                    <div class="team-badge" style="background-color: rgba(34, 197, 94, 0.2); color: var(--primary-color);">120₼/saat</div>
+                    <h3 class="card-title">Mini Futbol Arena</h3>
+                    <div class="card-subtitle">🏠 Baki</div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">🕐 Boş saatlar: 5 saat</div>
+                    <div class="time-slots" style="margin-bottom: 1rem;">
+                        <button class="time-slot">16:00</button>
+                        <button class="time-slot">17:00</button>
+                        <button class="time-slot">18:00</button>
+                    </div>
+                    <div class="card-buttons"><a href="field-detail.html?id=1" class="btn-small">Rezerv et →</a></div>
+                </div>
+            </div>
+
+            <div class="field-card">
+                <div class="card-image"><div class="rating">⭐ 4.9</div></div>
+                <div class="card-content">
+                    <div class="team-badge" style="background-color: rgba(34, 197, 94, 0.2); color: var(--primary-color);">100₼/saat</div>
+                    <h3 class="card-title">Premium Football Field</h3>
+                    <div class="card-subtitle">🏠 Baki</div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">🕐 Boş saatlar: 1 saat</div>
+                    <div class="time-slots" style="margin-bottom: 1rem;">
+                        <button class="time-slot">15:00</button>
+                        <button class="time-slot">16:00</button>
+                        <button class="time-slot">17:00</button>
+                    </div>
+                    <div class="card-buttons"><a href="field-detail.html?id=2" class="btn-small">Rezerv et →</a></div>
+                </div>
+            </div>
+
+            <div class="field-card">
+                <div class="card-image"><div class="rating">⭐ 4.8</div></div>
+                <div class="card-content">
+                    <div class="team-badge" style="background-color: rgba(34, 197, 94, 0.2); color: var(--primary-color);">80₼/saat</div>
+                    <h3 class="card-title">Arena Football Center</h3>
+                    <div class="card-subtitle">🏠 Baki</div>
+                    <div style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">🕐 Boş saatlar: 3 saat</div>
+                    <div class="time-slots" style="margin-bottom: 1rem;">
+                        <button class="time-slot">17:00</button>
+                        <button class="time-slot">19:00</button>
+                        <button class="time-slot">20:00</button>
+                    </div>
+                    <div class="card-buttons"><a href="field-detail.html?id=3" class="btn-small">Rezerv et →</a></div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Turnir və çempionlaşmalar</h2>
+        <p class="section-subtitle">Gələcək və cari turnirləri kəşf edin.</p>
+
+        <div class="cards-grid">
+            <div class="tournament-card">
+                <div class="card-image"><span style="position: absolute; top: 1rem; right: 1rem; background-color: rgba(34, 197, 94, 0.2); color: var(--primary-color); padding: 0.3rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Devam edir</span></div>
+                <div class="card-content">
+                    <div class="prize-badge">⭐ 5000 AZN</div>
+                    <h3 class="card-title">Baki Şəhər Kuboku 2024</h3>
+                    <div class="tournament-details">
+                        <div class="tournament-detail-item">📅 15 Yanvar 2024</div>
+                        <div class="tournament-detail-item">📍 Arena Football Center</div>
+                        <div class="tournament-detail-item">👥 8/12 komanda</div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 66.67%"></div></div>
+                    <div class="progress-text">8/12 komanda</div>
+                    <div class="card-buttons"><a href="#" class="btn-small">Qoşul →</a></div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="card-image"><span style="position: absolute; top: 1rem; right: 1rem; background-color: rgba(59, 130, 246, 0.2); color: #3b82f6; padding: 0.3rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Tezlikdə</span></div>
+                <div class="card-content">
+                    <div class="prize-badge">⭐ 3000 AZN</div>
+                    <h3 class="card-title">Yaz Liqası</h3>
+                    <div class="tournament-details">
+                        <div class="tournament-detail-item">📅 1 Mart 2024</div>
+                        <div class="tournament-detail-item">📍 Olympic Sports Complex</div>
+                        <div class="tournament-detail-item">👥 8/12 komanda</div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 66.67%"></div></div>
+                    <div class="progress-text">8/12 komanda</div>
+                    <div class="card-buttons"><a href="#" class="btn-small">Qoşul →</a></div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="card-image"><span style="position: absolute; top: 1rem; right: 1rem; background-color: rgba(34, 197, 94, 0.2); color: var(--primary-color); padding: 0.3rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Devam edir</span></div>
+                <div class="card-content">
+                    <div class="prize-badge">⭐ 2000 AZN</div>
+                    <h3 class="card-title">Mini Futbol Çempionatı</h3>
+                    <div class="tournament-details">
+                        <div class="tournament-detail-item">📅 20 Dekabr 2023</div>
+                        <div class="tournament-detail-item">📍 Mini Football Arena</div>
+                        <div class="tournament-detail-item">👥 6/6 komanda</div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                    <div class="progress-text">6/6 komanda</div>
+                    <div class="card-buttons"><a href="#" class="btn-small">Qoşul →</a></div>
+                </div>
+            </div>
+
+            <div class="tournament-card">
+                <div class="card-image"><span style="position: absolute; top: 1rem; right: 1rem; background-color: rgba(59, 130, 246, 0.2); color: #3b82f6; padding: 0.3rem 0.6rem; border-radius: 0.3rem; font-size: 0.8rem;">Tezlikdə</span></div>
+                <div class="card-content">
+                    <div class="prize-badge">⭐ 1500 AZN</div>
+                    <h3 class="card-title">Gəncə Regional Cup</h3>
+                    <div class="tournament-details">
+                        <div class="tournament-detail-item">📅 10 Fevral 2024</div>
+                        <div class="tournament-detail-item">📍 Gəncə Sport Arena</div>
+                        <div class="tournament-detail-item">👥 5/8 komanda</div>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 62.5%"></div></div>
+                    <div class="progress-text">5/8 komanda</div>
+                    <div class="card-buttons"><a href="#" class="btn-small">Qoşul →</a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </div>
+                <p>Azərbaycanda futbol səvərləri bir araya gətirən böyük platform.</p>
+                <div class="social-links">
+                    <a href="#">f</a>
+                    <a href="#">📷</a>
+                    <a href="#">𝕏</a>
+                    <a href="#">▶</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="players.html">Oyunçular</a></li>
+                    <li><a href="teams.html">Komandalar</a></li>
+                    <li><a href="fields.html">Meydançalar</a></li>
+                    <li><a href="tournaments.html">Turnirler</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Şirkət</h4>
+                <ul>
+                    <li><a href="#">Haqqımızda</a></li>
+                    <li><a href="#">Blaqo</a></li>
+                    <li><a href="#">Karyera</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Dəstək</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Dəstək</a></li>
+                    <li><a href="#">Şərtlər</a></li>
+                    <li><a href="#">Gizlilik</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Bizimlə Əlaqə</h4>
+                <p>📧 info@futbolbirlik.az</p>
+                <p>📱 +994 50 123 45 67</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FutbolBirlik. Bütün hüquqlar qorunur.</p>
+            <div class="footer-links">
+                <a href="#">Şərtlər</a>
+                <a href="#">Gizlilik</a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/data.js"></script>
+</body>
+</html>
