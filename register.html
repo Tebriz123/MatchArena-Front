@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeydiyyat - FutbolBirlik</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <a href="login.html" class="login-btn">Daxil ol</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="auth-title">Hesab yaradın</h1>
+                    <p class="auth-subtitle">FutbolBirlik ailəsinə qoşulun</p>
+                </div>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">Ad</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required placeholder="Adınız">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Soyad</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required placeholder="Soyadınız">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefon</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+994 XX XXX XX XX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Şifrə</label>
+                        <input type="password" id="password" name="password" class="form-input" required placeholder="••••••••" minlength="6">
+                        <small class="form-hint">Minimum 6 simvol</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Şifrəni təsdiqlə</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required placeholder="••••••••">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userType" class="form-label">Hesab növü</label>
+                        <select id="userType" name="userType" class="form-input" required>
+                            <option value="">Seçin</option>
+                            <option value="player">Oyunçu</option>
+                            <option value="captain">Komanda Kapitanı</option>
+                            <option value="field-owner">Meydança Sahibi</option>
+                            <option value="organizer">Turnir Təşkilatçısı</option>
+                        </select>
+                        <small id="roleDescription" class="form-hint" style="display: none; color: var(--primary-color);"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" id="terms" required>
+                            <span><a href="#" class="auth-link">İstifadə şərtləri</a> və <a href="#" class="auth-link">Məxfilik siyasəti</a> ilə razıyam</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter">
+                            <span>Yeniliklərdən xəbərdar olmaq istəyirəm</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-btn">Qeydiyyatdan keç</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>və ya</span>
+                </div>
+
+                <div class="auth-social">
+                    <button class="social-btn google-btn">
+                        <span class="social-icon">G</span>
+                        Google ilə qeydiyyat
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <span class="social-icon">f</span>
+                        Facebook ilə qeydiyyat
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    Artıq hesabınız var? <a href="login.html" class="auth-link">Daxil ol</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/register.js"></script>
+</body>
+</html>

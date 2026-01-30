@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - FutbolBirlik</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <span class="user-name" id="userName">Admin</span>
+                <button class="login-btn" onclick="logout()">Çıxış</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="section-title">Admin Panel</h1>
+        <p class="section-subtitle">Platformu idarə edin və məzmun yaradın</p>
+
+        <!-- Stats Overview -->
+        <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">👥</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">2,547</div>
+                    <div class="admin-stat-label">Cəmi Oyunçu</div>
+                    <div class="admin-stat-change positive">+12% bu ay</div>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">⚽</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">124</div>
+                    <div class="admin-stat-label">Cəmi Komanda</div>
+                    <div class="admin-stat-change positive">+8% bu ay</div>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">🏆</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">45</div>
+                    <div class="admin-stat-label">Aktiv Turnir</div>
+                    <div class="admin-stat-change">15 gözlənilir</div>
+                </div>
+            </div>
+
+            <div class="admin-stat-card">
+                <div class="admin-stat-icon">🏟️</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">89</div>
+                    <div class="admin-stat-label">Qeydiyyatlı Meydança</div>
+                    <div class="admin-stat-change positive">+5% bu ay</div>
+                </div>
+            </div>
+
+            <div class="admin-stat-card alert">
+                <div class="admin-stat-icon">⚠️</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">23</div>
+                    <div class="admin-stat-label">Gözləyən Təsdiq</div>
+                    <div class="admin-stat-change warning">Diqqət tələb edir</div>
+                </div>
+            </div>
+
+            <div class="admin-stat-card alert">
+                <div class="admin-stat-icon">🚨</div>
+                <div class="admin-stat-content">
+                    <div class="admin-stat-number">8</div>
+                    <div class="admin-stat-label">Şikayətlər</div>
+                    <div class="admin-stat-change error">Yeni</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Management Tabs -->
+        <div class="admin-section">
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="overview">🏠 Ümumi</button>
+                <button class="admin-tab" data-tab="players">👥 Oyunçular</button>
+                <button class="admin-tab" data-tab="teams">⚽ Komandalar</button>
+                <button class="admin-tab" data-tab="tournaments">🏆 Turnirler</button>
+                <button class="admin-tab" data-tab="fields">🏟️ Meydançalar</button>
+                <button class="admin-tab" data-tab="reviews">⭐ Reytinqlər</button>
+                <button class="admin-tab" data-tab="pending">⚠️ Təsdiq Gözləyir</button>
+                <button class="admin-tab" data-tab="reports">🚨 Şikayətlər</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="admin-tab-content active" id="overview">
+                <div class="admin-actions-grid">
+                    <a href="create-team.html" class="admin-action-card">
+                        <div class="admin-action-icon">⚽</div>
+                        <h3 class="admin-action-title">Komanda Yarat</h3>
+                        <p class="admin-action-desc">Yeni futbol komandası əlavə edin</p>
+                    </a>
+
+                    <a href="create-tournament.html" class="admin-action-card">
+                        <div class="admin-action-icon">🏆</div>
+                        <h3 class="admin-action-title">Turnir Yarat</h3>
+                        <p class="admin-action-desc">Yeni turnir təşkil edin</p>
+                    </a>
+
+                    <a href="create-field.html" class="admin-action-card">
+                        <div class="admin-action-icon">🏟️</div>
+                        <h3 class="admin-action-title">Meydança Yarat</h3>
+                        <p class="admin-action-desc">Yeni meydança qeydiyyatı</p>
+                    </a>
+
+                    <div class="admin-action-card" onclick="showCreatePlayerModal()">
+                        <div class="admin-action-icon">👤</div>
+                        <h3 class="admin-action-title">Oyunçu Yarat</h3>
+                        <p class="admin-action-desc">Yeni oyunçu profili</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Players Management Tab -->
+            <div class="admin-tab-content" id="players">
+                <div class="admin-panel-header">
+                    <h3>Oyunçuları İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Oyunçu axtar..." onkeyup="filterTable('playersTable', this.value)">
+                        <button class="btn btn-primary" onclick="showCreatePlayerModal()">+ Oyunçu Əlavə Et</button>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="playersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ad Soyad</th>
+                                <th>Mövqe</th>
+                                <th>Komanda</th>
+                                <th>Reytinq</th>
+                                <th>Status</th>
+                                <th>Qeydiyyat</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1247</td>
+                                <td>
+                                    <div class="table-user">
+                                        <div class="table-avatar">K</div>
+                                        <span>Kamran Əliyev</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-info">Hücumçu</span></td>
+                                <td>Qarabağ Legends</td>
+                                <td>⭐ 4.8</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>15.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewPlayer(1247)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editPlayer(1247)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deletePlayer(1247)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1248</td>
+                                <td>
+                                    <div class="table-user">
+                                        <div class="table-avatar">E</div>
+                                        <span>Emil Məmmədov</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-warning">Qapıçı</span></td>
+                                <td>Neftçi FC</td>
+                                <td>⭐ 4.6</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>18.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewPlayer(1248)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editPlayer(1248)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deletePlayer(1248)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1249</td>
+                                <td>
+                                    <div class="table-user">
+                                        <div class="table-avatar">R</div>
+                                        <span>Rəşad Həsənov</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-primary">Müdafiəçi</span></td>
+                                <td>Sumqayıt Stars</td>
+                                <td>⭐ 4.9</td>
+                                <td><span class="badge badge-danger">İnaktiv</span></td>
+                                <td>22.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewPlayer(1249)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editPlayer(1249)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deletePlayer(1249)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Teams Management Tab -->
+            <div class="admin-tab-content" id="teams">
+                <div class="admin-panel-header">
+                    <h3>Komandaları İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Komanda axtar..." onkeyup="filterTable('teamsTable', this.value)">
+                        <a href="create-team.html" class="btn btn-primary">+ Komanda Əlavə Et</a>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="teamsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Komanda</th>
+                                <th>Kapitain</th>
+                                <th>Şəhər</th>
+                                <th>Oyunçular</th>
+                                <th>Q-B-M</th>
+                                <th>Status</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#501</td>
+                                <td>
+                                    <div class="table-user">
+                                        <div class="table-avatar">Q</div>
+                                        <span>Qarabağ Legends</span>
+                                    </div>
+                                </td>
+                                <td>Öli Kazimov</td>
+                                <td>Bakı</td>
+                                <td>15/15</td>
+                                <td>12-3-2</td>
+                                <td><span class="badge badge-warning">Oyunçu axtarır</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewTeam(501)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editTeam(501)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteTeam(501)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#502</td>
+                                <td>
+                                    <div class="table-user">
+                                        <div class="table-avatar">N</div>
+                                        <span>Neftçi FC</span>
+                                    </div>
+                                </td>
+                                <td>Elvin Məmmədov</td>
+                                <td>Bakı</td>
+                                <td>12/15</td>
+                                <td>8-4-3</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewTeam(502)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editTeam(502)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteTeam(502)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tournaments Management Tab -->
+            <div class="admin-tab-content" id="tournaments">
+                <div class="admin-panel-header">
+                    <h3>Turnirləri İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Turnir axtar..." onkeyup="filterTable('tournamentsTable', this.value)">
+                        <a href="create-tournament.html" class="btn btn-primary">+ Turnir Əlavə Et</a>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="tournamentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Turnir</th>
+                                <th>Məkan</th>
+                                <th>Tarix</th>
+                                <th>Komandalar</th>
+                                <th>Mükafat</th>
+                                <th>Status</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#301</td>
+                                <td>Yay Çempionatı 2026</td>
+                                <td>Bakı</td>
+                                <td>01.06 - 15.06</td>
+                                <td>12/16</td>
+                                <td>5000₼</td>
+                                <td><span class="badge badge-info">Qeydiyyat</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewTournament(301)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editTournament(301)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteTournament(301)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#302</td>
+                                <td>Qış Kuboku</td>
+                                <td>Gəncə</td>
+                                <td>15.02 - 20.02</td>
+                                <td>8/8</td>
+                                <td>3000₼</td>
+                                <td><span class="badge badge-success">Davam edir</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewTournament(302)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editTournament(302)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteTournament(302)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Fields Management Tab -->
+            <div class="admin-tab-content" id="fields">
+                <div class="admin-panel-header">
+                    <h3>Meydançaları İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Meydança axtar..." onkeyup="filterTable('fieldsTable', this.value)">
+                        <a href="create-field.html" class="btn btn-primary">+ Meydança Əlavə Et</a>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="fieldsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Meydança</th>
+                                <th>Şəhər</th>
+                                <th>Ölçü</th>
+                                <th>Səth</th>
+                                <th>Qiymət</th>
+                                <th>Reytinq</th>
+                                <th>Status</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#201</td>
+                                <td>Olimpiya Stadionu</td>
+                                <td>Bakı</td>
+                                <td>11x11</td>
+                                <td>Qısa çəmən</td>
+                                <td>150₼/saat</td>
+                                <td>⭐ 4.9</td>
+                                <td><span class="badge badge-success">Müsait</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewField(201)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editField(201)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteField(201)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#202</td>
+                                <td>Arena Sport Complex</td>
+                                <td>Bakı</td>
+                                <td>7x7</td>
+                                <td>Süni örtük</td>
+                                <td>80₼/saat</td>
+                                <td>⭐ 4.7</td>
+                                <td><span class="badge badge-danger">Məşğul</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewField(202)">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editField(202)">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteField(202)">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reviews Management Tab -->
+            <div class="admin-tab-content" id="reviews">
+                <div class="admin-panel-header">
+                    <h3>Reytinq və Rəylər</h3>
+                    <div class="admin-panel-actions">
+                        <select class="filter-select" onchange="filterReviews(this.value)">
+                            <option value="all">Hamısı</option>
+                            <option value="players">Oyunçular</option>
+                            <option value="teams">Komandalar</option>
+                            <option value="fields">Meydançalar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="reviews-list">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-user">
+                                <div class="table-avatar">K</div>
+                                <div>
+                                    <div class="review-name">Kamran Əliyev</div>
+                                    <div class="review-target">Olimpiya Stadionu haqqında</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
+                        </div>
+                        <p class="review-text">Əla meydança! Çəmən keyfiyyətlidir, işıqlandırma mükəmməldir. Parkingda yer var.</p>
+                        <div class="review-footer">
+                            <span class="review-date">25.01.2026</span>
+                            <div class="review-actions">
+                                <button class="btn-small btn-success" onclick="approveReview(1)">✓ Təsdiqlə</button>
+                                <button class="btn-small btn-danger" onclick="deleteReview(1)">✗ Sil</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-user">
+                                <div class="table-avatar">E</div>
+                                <div>
+                                    <div class="review-name">Emil Məmmədov</div>
+                                    <div class="review-target">Qarabağ Legends komandası haqqında</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐ 4.0</div>
+                        </div>
+                        <p class="review-text">Yaxşı komanda, peşəkar oyunçular. Məşqlər mütəmadi keçirilir.</p>
+                        <div class="review-footer">
+                            <span class="review-date">26.01.2026</span>
+                            <div class="review-actions">
+                                <button class="btn-small btn-success" onclick="approveReview(2)">✓ Təsdiqlə</button>
+                                <button class="btn-small btn-danger" onclick="deleteReview(2)">✗ Sil</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card flagged">
+                        <div class="review-header">
+                            <div class="review-user">
+                                <div class="table-avatar">A</div>
+                                <div>
+                                    <div class="review-name">Anar Həsənov</div>
+                                    <div class="review-target">Arena Sport Complex haqqında</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">⭐ 1.0</div>
+                        </div>
+                        <p class="review-text">Çox pis! Rezervasiya edilən vaxt verilmədi. 🚨 Şikayət edilib</p>
+                        <div class="review-footer">
+                            <span class="review-date">28.01.2026</span>
+                            <div class="review-actions">
+                                <button class="btn-small btn-success" onclick="approveReview(3)">✓ Təsdiqlə</button>
+                                <button class="btn-small btn-danger" onclick="deleteReview(3)">✗ Sil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Approvals Tab -->
+            <div class="admin-tab-content" id="pending">
+                <div class="admin-panel-header">
+                    <h3>Təsdiq Gözləyən Məzmun</h3>
+                </div>
+                <div class="pending-list">
+                    <div class="pending-card">
+                        <div class="pending-icon">⚽</div>
+                        <div class="pending-content">
+                            <h4>Yeni Komanda Qeydiyyatı</h4>
+                            <p><strong>Sabah United</strong> komandası qeydiyyat üçün müraciət edib</p>
+                            <div class="pending-meta">
+                                <span>Kapitain: Səbuhİ Qarayev</span>
+                                <span>15 oyunçu</span>
+                                <span>28.01.2026</span>
+                            </div>
+                        </div>
+                        <div class="pending-actions">
+                            <button class="btn btn-success" onclick="approvePending('team', 1)">✓ Təsdiqlə</button>
+                            <button class="btn btn-danger" onclick="rejectPending('team', 1)">✗ Rədd et</button>
+                        </div>
+                    </div>
+
+                    <div class="pending-card">
+                        <div class="pending-icon">🏟️</div>
+                        <div class="pending-content">
+                            <h4>Yeni Meydança Əlavə Edilməsi</h4>
+                            <p><strong>Mərkəz Stadion</strong> meydança əlavə edilmək üçün göndərilib</p>
+                            <div class="pending-meta">
+                                <span>Sahibi: Rəşad Əliyev</span>
+                                <span>11x11 Süni</span>
+                                <span>27.01.2026</span>
+                            </div>
+                        </div>
+                        <div class="pending-actions">
+                            <button class="btn btn-success" onclick="approvePending('field', 1)">✓ Təsdiqlə</button>
+                            <button class="btn btn-danger" onclick="rejectPending('field', 1)">✗ Rədd et</button>
+                        </div>
+                    </div>
+
+                    <div class="pending-card">
+                        <div class="pending-icon">🏆</div>
+                        <div class="pending-content">
+                            <h4>Turnir Təşkil Edilməsi</h4>
+                            <p><strong>Yaz Kuboku 2026</strong> turniri təsdiq gözləyir</p>
+                            <div class="pending-meta">
+                                <span>Təşkilatçı: FutbolAZ</span>
+                                <span>24 komanda</span>
+                                <span>29.01.2026</span>
+                            </div>
+                        </div>
+                        <div class="pending-actions">
+                            <button class="btn btn-success" onclick="approvePending('tournament', 1)">✓ Təsdiqlə</button>
+                            <button class="btn btn-danger" onclick="rejectPending('tournament', 1)">✗ Rədd et</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div class="admin-tab-content" id="reports">
+                <div class="admin-panel-header">
+                    <h3>Şikayətlər və Hesabatlar</h3>
+                    <div class="admin-panel-actions">
+                        <select class="filter-select" onchange="filterReports(this.value)">
+                            <option value="all">Hamısı</option>
+                            <option value="spam">Spam</option>
+                            <option value="abuse">Təhqir</option>
+                            <option value="fake">Saxta məlumat</option>
+                            <option value="other">Digər</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="reports-list">
+                    <div class="report-card urgent">
+                        <div class="report-header">
+                            <span class="report-badge urgent">🚨 Təcili</span>
+                            <span class="report-date">29.01.2026 18:45</span>
+                        </div>
+                        <h4 class="report-title">Təhqir və Uyğunsuz Davranış</h4>
+                        <p class="report-description">
+                            <strong>Şikayət edən:</strong> Kamran Əliyev<br>
+                            <strong>Şikayət edilən:</strong> Vüsal Məmmədov (Oyunçu #1245)<br>
+                            <strong>Səbəb:</strong> Oyun zamanı kobud davranış və təhqiredici sözlər
+                        </p>
+                        <div class="report-actions">
+                            <button class="btn btn-primary" onclick="viewReport(1)">👁️ Ətraflı</button>
+                            <button class="btn btn-warning" onclick="warnUser(1245)">⚠️ Xəbərdarlıq</button>
+                            <button class="btn btn-danger" onclick="banUser(1245)">🚫 Bloklama</button>
+                            <button class="btn btn-secondary" onclick="dismissReport(1)">✓ Bağla</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-header">
+                            <span class="report-badge">📢 Spam</span>
+                            <span class="report-date">28.01.2026 14:30</span>
+                        </div>
+                        <h4 class="report-title">Spam Məzmun</h4>
+                        <p class="report-description">
+                            <strong>Şikayət edən:</strong> Emil Məmmədov<br>
+                            <strong>Şikayət edilən:</strong> Pro Sport Arena (Meydança #205)<br>
+                            <strong>Səbəb:</strong> Təkrar və spam reklam mesajları göndərir
+                        </p>
+                        <div class="report-actions">
+                            <button class="btn btn-primary" onclick="viewReport(2)">👁️ Ətraflı</button>
+                            <button class="btn btn-warning" onclick="warnUser(205)">⚠️ Xəbərdarlıq</button>
+                            <button class="btn btn-danger" onclick="removeContent(205)">🗑️ Məzmunu Sil</button>
+                            <button class="btn btn-secondary" onclick="dismissReport(2)">✓ Bağla</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <div class="report-header">
+                            <span class="report-badge">⚠️ Saxta məlumat</span>
+                            <span class="report-date">27.01.2026 10:15</span>
+                        </div>
+                        <h4 class="report-title">Saxta Komanda Məlumatı</h4>
+                        <p class="report-description">
+                            <strong>Şikayət edən:</strong> Sistem Avtomatik<br>
+                            <strong>Şikayət edilən:</strong> Champions Squad (Komanda #508)<br>
+                            <strong>Səbəb:</strong> Yanlış statistika və həqiqətə uyğun olmayan məlumatlar
+                        </p>
+                        <div class="report-actions">
+                            <button class="btn btn-primary" onclick="viewReport(3)">👁️ Ətraflı</button>
+                            <button class="btn btn-warning" onclick="editTeam(508)">✏️ Düzəliş et</button>
+                            <button class="btn btn-danger" onclick="deleteTeam(508)">🗑️ Komandanı Sil</button>
+                            <button class="btn btn-secondary" onclick="dismissReport(3)">✓ Bağla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="admin-section">
+            <h2 class="admin-section-title">Son Fəaliyyətlər</h2>
+            
+            <div class="admin-activity-list">
+                <div class="admin-activity-item">
+                    <div class="activity-icon">⚽</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Yeni komanda qeydiyyatı</div>
+                        <div class="activity-desc">"Qarabağ Legends" komandası yaradıldı</div>
+                        <div class="activity-time">5 dəqiqə əvvəl</div>
+                    </div>
+                    <button class="activity-action" onclick="viewTeam(501)">Bax</button>
+                </div>
+
+                <div class="admin-activity-item">
+                    <div class="activity-icon">🏆</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Turnir başladı</div>
+                        <div class="activity-desc">"Yay Çempionatı 2026" aktivləşdi</div>
+                        <div class="activity-time">1 saat əvvəl</div>
+                    </div>
+                    <button class="activity-action" onclick="viewTournament(301)">Bax</button>
+                </div>
+
+                <div class="admin-activity-item">
+                    <div class="activity-icon">🏟️</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Meydança rezervi</div>
+                        <div class="activity-desc">"Olimpiya Stadionu" 18:00-20:00 rezerv edildi</div>
+                        <div class="activity-time">2 saat əvvəl</div>
+                    </div>
+                    <button class="activity-action" onclick="viewField(201)">Bax</button>
+                </div>
+
+                <div class="admin-activity-item">
+                    <div class="activity-icon">👥</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Yeni oyunçu qeydiyyatı</div>
+                        <div class="activity-desc">15 yeni istifadəçi qoşuldu</div>
+                        <div class="activity-time">3 saat əvvəl</div>
+                    </div>
+                    <button class="activity-action">Bax</button>
+                </div>
+
+                <div class="admin-activity-item">
+                    <div class="activity-icon">🏆</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Turnir qeydiyyatı</div>
+                        <div class="activity-desc">"Neftçi FC" "Qış Kuboku" turnirində iştirak edir</div>
+                        <div class="activity-time">5 saat əvvəl</div>
+                    </div>
+                    <button class="activity-action" onclick="viewTournament(302)">Bax</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="admin-section">
+            <h2 class="admin-section-title">Sistem Statusu</h2>
+            
+            <div class="admin-status-grid">
+                <div class="admin-status-card">
+                    <div class="status-header">
+                        <span>Sistem Sağlamlığı</span>
+                        <span class="status-indicator status-success">●</span>
+                    </div>
+                    <div class="status-value">99.8% Aktiv</div>
+                </div>
+
+                <div class="admin-status-card">
+                    <div class="status-header">
+                        <span>Verilənlər Bazası</span>
+                        <span class="status-indicator status-success">●</span>
+                    </div>
+                    <div class="status-value">Normal</div>
+                </div>
+
+                <div class="admin-status-card">
+                    <div class="status-header">
+                        <span>API Cavab Müddəti</span>
+                        <span class="status-indicator status-success">●</span>
+                    </div>
+                    <div class="status-value">45ms</div>
+                </div>
+
+                <div class="admin-status-card">
+                    <div class="status-header">
+                        <span>Saxlanma</span>
+                        <span class="status-indicator status-warning">●</span>
+                    </div>
+                    <div class="status-value">78% istifadə</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <h3 class="modal-title">Silməni Təsdiqlə</h3>
+            <p class="modal-text">Bu əməliyyatı geri qaytarmaq mümkün olmayacaq. Davam etmək istədiyinizə əminsiniz?</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Ləğv et</button>
+                <button class="btn btn-danger" onclick="confirmDelete()">Sil</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/admin-panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnir Profili - FutbolBirlik</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link active">Turnirler</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <a href="login.html" class="user-name" style="text-decoration: none; color: inherit;">Daxil ol</a>
+                <a href="register.html" class="login-btn" style="text-decoration: none; color: inherit;">Qeydiyyat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <a href="tournaments.html" style="color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; display: inline-block;">← Turnirlərə qayıt</a>
+
+        <!-- Tournament Header -->
+        <div class="tournament-header-card">
+            <div class="tournament-banner">
+                <div class="tournament-icon">🏆</div>
+                <span class="tournament-status-badge ongoing">Davam edir</span>
+            </div>
+            
+            <div class="tournament-header-content">
+                <h1 class="tournament-title">Yay Çempionatı 2026</h1>
+                <p class="tournament-organizer">Təşkilatçı: FutbolBirlik • 📍 Bakı, Azərbaycan</p>
+                
+                <div class="tournament-stats-grid">
+                    <div class="tournament-stat-box">
+                        <div class="stat-label">Mükafat Fondu</div>
+                        <div class="stat-value">5000₼</div>
+                    </div>
+                    <div class="tournament-stat-box">
+                        <div class="stat-label">Komandalar</div>
+                        <div class="stat-value">12/16</div>
+                    </div>
+                    <div class="tournament-stat-box">
+                        <div class="stat-label">Format</div>
+                        <div class="stat-value">Qrup + Playoff</div>
+                    </div>
+                    <div class="tournament-stat-box">
+                        <div class="stat-label">Oyun Müddəti</div>
+                        <div class="stat-value">90 dəq</div>
+                    </div>
+                </div>
+
+                <div class="tournament-progress">
+                    <div class="progress-bar-large">
+                        <div class="progress-fill-large" style="width: 75%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>12 komanda qeydiyyatdan keçdi</span>
+                        <span>4 yer qalıb</span>
+                    </div>
+                </div>
+
+                <div class="tournament-actions">
+                    <button class="btn btn-primary btn-large">Komanda Qeyd Et</button>
+                    <button class="btn btn-secondary btn-large">Paylaş</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tournament Info Tabs -->
+        <div class="detail-tabs">
+            <button class="detail-tab active" data-tab="overview">Ümumi</button>
+            <button class="detail-tab" data-tab="teams">Komandalar</button>
+            <button class="detail-tab" data-tab="schedule">Oyun Cədvəli</button>
+            <button class="detail-tab" data-tab="standings">Turnir Cədvəli</button>
+            <button class="detail-tab" data-tab="rules">Qaydalar</button>
+        </div>
+
+        <div class="detail-content">
+            <!-- Overview Tab -->
+            <div class="detail-tab-content active" id="overview">
+                <div class="detail-grid">
+                    <!-- Left Column -->
+                    <div class="detail-left">
+                        <div class="detail-card">
+                            <h3 class="detail-card-title">Turnir Məlumatları</h3>
+                            
+                            <div class="detail-info-row">
+                                <span class="info-label">📅 Başlama Tarixi</span>
+                                <span class="info-value">1 İyun 2026</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">🏁 Bitmə Tarixi</span>
+                                <span class="info-value">15 İyun 2026</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">📍 Məkan</span>
+                                <span class="info-value">Bakı, Azərbaycan</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">🏟️ Meydança</span>
+                                <span class="info-value">Olimpiya Stadionu</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">👥 Maksimum Komanda</span>
+                                <span class="info-value">16</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">💰 Giriş Haqqı</span>
+                                <span class="info-value">50₼</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">⏱️ Oyun Müddəti</span>
+                                <span class="info-value">90 dəqiqə (2x45)</span>
+                            </div>
+
+                            <div class="detail-info-row">
+                                <span class="info-label">📝 Son Qeydiyyat</span>
+                                <span class="info-value">25 May 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <h3 class="detail-card-title">Təşkilatçı</h3>
+                            
+                            <div class="organizer-info">
+                                <div class="organizer-avatar">FB</div>
+                                <div>
+                                    <div class="organizer-name">FutbolBirlik</div>
+                                    <div class="organizer-stats">15 turnir • ⭐ 4.8</div>
+                                </div>
+                            </div>
+
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <span>+994 50 XXX XX XX</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">✉️</span>
+                                    <span>info@futbolbirlik.az</span>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🌐</span>
+                                    <span>www.futbolbirlik.az</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="detail-right">
+                        <div class="detail-card">
+                            <h3 class="detail-card-title">Haqqında</h3>
+                            <p class="detail-description">
+                                Yay Çempionatı 2026 - Bakının ən prestijli futbol turniri! 16 güclü komanda, 
+                                15 gün gərgin rəqabət və 5000 AZN mükafat fondu ilə Azərbaycanın ən böyük 
+                                yay futbol hadisəsi. Qrup mərhələsi və playoff sistemində keçiriləcək bu 
+                                turnir, komandaların həm taktiki, həm də fiziki hazırlığını sınayacaq.
+                            </p>
+                            <p class="detail-description">
+                                Turnirdə iştirak etmək üçün komandanız minimum 11, maksimum 15 oyunçudan 
+                                ibarət olmalıdır. Hər komanda 3 substitut istifadə edə bilər. Oyunlar 
+                                FIFA qaydalarına uyğun keçiriləcək.
+                            </p>
+                        </div>
+
+                        <div class="detail-card">
+                            <h3 class="detail-card-title">Mükafatlar</h3>
+                            
+                            <div class="prize-list">
+                                <div class="prize-item first">
+                                    <div class="prize-medal">🥇</div>
+                                    <div class="prize-info">
+                                        <div class="prize-place">1-ci yer</div>
+                                        <div class="prize-amount">3000₼ + Kubok</div>
+                                    </div>
+                                </div>
+
+                                <div class="prize-item second">
+                                    <div class="prize-medal">🥈</div>
+                                    <div class="prize-info">
+                                        <div class="prize-place">2-ci yer</div>
+                                        <div class="prize-amount">1500₼ + Medal</div>
+                                    </div>
+                                </div>
+
+                                <div class="prize-item third">
+                                    <div class="prize-medal">🥉</div>
+                                    <div class="prize-info">
+                                        <div class="prize-place">3-cü yer</div>
+                                        <div class="prize-amount">500₼ + Medal</div>
+                                    </div>
+                                </div>
+
+                                <div class="prize-item special">
+                                    <div class="prize-medal">⚽</div>
+                                    <div class="prize-info">
+                                        <div class="prize-place">Ən yaxşı oyunçu</div>
+                                        <div class="prize-amount">Xüsusi mükafat</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <h3 class="detail-card-title">Əhəmiyyətli Tarixlər</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">1 May 2026</div>
+                                        <div class="timeline-title">Qeydiyyat Başlangıcı</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item active">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">25 May 2026</div>
+                                        <div class="timeline-title">Son Qeydiyyat</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">28 May 2026</div>
+                                        <div class="timeline-title">Qura çəkilişi</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">1 İyun 2026</div>
+                                        <div class="timeline-title">Turnir Başlangıcı</div>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">15 İyun 2026</div>
+                                        <div class="timeline-title">Final Oyunu</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teams Tab -->
+            <div class="detail-tab-content" id="teams">
+                <div class="detail-card">
+                    <h3 class="detail-card-title">Qeydiyyatdan keçmiş komandalar (12)</h3>
+                    
+                    <div class="teams-grid">
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">Q</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Qarabağ Legends</div>
+                                <div class="team-stats-small">15 oyunçu • ⭐ 4.9</div>
+                            </div>
+                        </div>
+
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">N</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Neftçi FC</div>
+                                <div class="team-stats-small">13 oyunçu • ⭐ 4.7</div>
+                            </div>
+                        </div>
+
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">S</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Sumqayıt Stars</div>
+                                <div class="team-stats-small">14 oyunçu • ⭐ 4.8</div>
+                            </div>
+                        </div>
+
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">K</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Keşlə United</div>
+                                <div class="team-stats-small">15 oyunçu • ⭐ 4.6</div>
+                            </div>
+                        </div>
+
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">Z</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Zirə Strikers</div>
+                                <div class="team-stats-small">12 oyunçu • ⭐ 4.5</div>
+                            </div>
+                        </div>
+
+                        <div class="team-card-small">
+                            <div class="team-avatar-small">S</div>
+                            <div class="team-info-small">
+                                <div class="team-name-small">Sabah Warriors</div>
+                                <div class="team-stats-small">13 oyunçu • ⭐ 4.4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Tab -->
+            <div class="detail-tab-content" id="schedule">
+                <div class="detail-card">
+                    <h3 class="detail-card-title">Qrup Mərhələsi - 1-ci Tur</h3>
+                    
+                    <div class="matches-list">
+                        <div class="match-card">
+                            <div class="match-date">1 İyun 2026, 18:00</div>
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <span class="match-team-name">Qarabağ Legends</span>
+                                    <span class="match-team-logo">Q</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="match-team">
+                                    <span class="match-team-logo">N</span>
+                                    <span class="match-team-name">Neftçi FC</span>
+                                </div>
+                            </div>
+                            <div class="match-venue">📍 Olimpiya Stadionu</div>
+                        </div>
+
+                        <div class="match-card">
+                            <div class="match-date">1 İyun 2026, 20:00</div>
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <span class="match-team-name">Sumqayıt Stars</span>
+                                    <span class="match-team-logo">S</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="match-team">
+                                    <span class="match-team-logo">K</span>
+                                    <span class="match-team-name">Keşlə United</span>
+                                </div>
+                            </div>
+                            <div class="match-venue">📍 Olimpiya Stadionu</div>
+                        </div>
+
+                        <div class="match-card past">
+                            <div class="match-date">2 İyun 2026, 18:00</div>
+                            <div class="match-teams">
+                                <div class="match-team">
+                                    <span class="match-team-name">Zirə Strikers</span>
+                                    <span class="match-team-logo">Z</span>
+                                </div>
+                                <div class="match-score">
+                                    <span class="score-value">2 - 1</span>
+                                </div>
+                                <div class="match-team">
+                                    <span class="match-team-logo">S</span>
+                                    <span class="match-team-name">Sabah Warriors</span>
+                                </div>
+                            </div>
+                            <div class="match-venue">📍 Olimpiya Stadionu • Bitdi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standings Tab -->
+            <div class="detail-tab-content" id="standings">
+                <div class="detail-card">
+                    <h3 class="detail-card-title">Qrup A - Turnir Cədvəli</h3>
+                    
+                    <div class="standings-table">
+                        <table class="standings">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Komanda</th>
+                                    <th>O</th>
+                                    <th>Q</th>
+                                    <th>B</th>
+                                    <th>M</th>
+                                    <th>+/-</th>
+                                    <th>X</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="qualified">
+                                    <td>1</td>
+                                    <td>
+                                        <div class="standing-team">
+                                            <span class="standing-logo">Q</span>
+                                            <span>Qarabağ Legends</span>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>+8</td>
+                                    <td class="points">9</td>
+                                </tr>
+                                <tr class="qualified">
+                                    <td>2</td>
+                                    <td>
+                                        <div class="standing-team">
+                                            <span class="standing-logo">N</span>
+                                            <span>Neftçi FC</span>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>+4</td>
+                                    <td class="points">7</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <div class="standing-team">
+                                            <span class="standing-logo">S</span>
+                                            <span>Sumqayıt Stars</span>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td class="points">4</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <div class="standing-team">
+                                            <span class="standing-logo">K</span>
+                                            <span>Keşlə United</span>
+                                        </div>
+                                    </td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>-12</td>
+                                    <td class="points">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="standings-legend">
+                            <span class="legend-item"><span class="legend-color qualified"></span> Playoff mərhələsinə keçdi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules Tab -->
+            <div class="detail-tab-content" id="rules">
+                <div class="detail-card">
+                    <h3 class="detail-card-title">Turnir Qaydaları</h3>
+                    
+                    <div class="rules-content">
+                        <div class="rule-section">
+                            <h4 class="rule-title">1. Ümumi Qaydalar</h4>
+                            <ul class="rule-list">
+                                <li>Turnir FIFA qaydalarına uyğun keçirilir</li>
+                                <li>Hər komanda minimum 11, maksimum 15 oyunçudan ibarət olmalıdır</li>
+                                <li>Qeydiyyat haqqı - 50₼ (geri qaytarılmır)</li>
+                                <li>Son qeydiyyat tarixi: 25 May 2026</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-section">
+                            <h4 class="rule-title">2. Oyun Formatı</h4>
+                            <ul class="rule-list">
+                                <li>Qrup mərhələsi: 4 komandadan ibarət 4 qrup</li>
+                                <li>Hər qrupdan ilk 2 komanda playoff mərhələsinə keçir</li>
+                                <li>Oyun müddəti: 2 x 45 dəqiqə</li>
+                                <li>Fasilə: 15 dəqiqə</li>
+                                <li>Bərabərlik halında penalti atışları</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-section">
+                            <h4 class="rule-title">3. Oyunçu Dəyişiklikləri</h4>
+                            <ul class="rule-list">
+                                <li>Hər komanda 3 dəyişiklik edə bilər</li>
+                                <li>Əlavə vaxtda 1 əlavə dəyişiklik icazəsi</li>
+                                <li>Dəyişilmiş oyunçu geri qayıda bilməz</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-section">
+                            <h4 class="rule-title">4. Xüsusi Şərtlər</h4>
+                            <ul class="rule-list">
+                                <li>Bütün oyunçular qeydiyyatdan keçməlidir</li>
+                                <li>Şəxsiyyət vəsiqəsi və tibbi arayış tələb olunur</li>
+                                <li>Forma rəngləri təşkilatçı tərəfindən təsdiqlənməlidir</li>
+                                <li>Oyundan 30 dəqiqə əvvəl meydançada olunmalıdır</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-section">
+                            <h4 class="rule-title">5. Cəzalar</h4>
+                            <ul class="rule-list">
+                                <li>Sarı kart: Xəbərdarlıq (2 sarı = 1 qırmızı)</li>
+                                <li>Qırmızı kart: Oyundan kənarlaşdırma + növbəti oyun cəzası</li>
+                                <li>Kobud davranış: Turnirlə kənarlaşdırma</li>
+                                <li>Vaxtında gəlməmə: Texniki məğlubiyyət (0:3)</li>
+                            </ul>
+                        </div>
+
+                        <div class="rule-section">
+                            <h4 class="rule-title">6. Etiraz və Apellyasiyalar</h4>
+                            <ul class="rule-list">
+                                <li>Etirazlar oyundan sonra 24 saat ərzində qəbul edilir</li>
+                                <li>Yazılı şəkildə təşkilatçıya təqdim edilməlidir</li>
+                                <li>Hakimin qərarı son qərardır</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/tournament-detail.js"></script>
+</body>
+</html>

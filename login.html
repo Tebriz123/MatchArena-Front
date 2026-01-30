@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daxil ol - FutbolBirlik</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-icon">⚽</span>
+                    <span>FutbolBirlik</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <a href="register.html" class="login-btn">Qeydiyyat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="auth-title">Xoş gəlmisiniz</h1>
+                    <p class="auth-subtitle">Hesabınıza daxil olun</p>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Şifrə</label>
+                        <input type="password" id="password" name="password" class="form-input" required placeholder="••••••••">
+                    </div>
+
+                    <div class="auth-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span>Məni xatırla</span>
+                        </label>
+                        <a href="#" class="auth-link">Şifrəni unutmusunuz?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary auth-btn">Daxil ol</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>və ya</span>
+                </div>
+
+                <div class="auth-social">
+                    <button class="social-btn google-btn">
+                        <span class="social-icon">G</span>
+                        Google ilə daxil ol
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <span class="social-icon">f</span>
+                        Facebook ilə daxil ol
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    Hesabınız yoxdur? <a href="register.html" class="auth-link">Qeydiyyatdan keç</a>
+                </div>
+
+                <!-- Admin Login -->
+                <div class="admin-login-section">
+                    <div class="auth-divider">
+                        <span>Test hesabları</span>
+                    </div>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <button type="button" class="btn btn-secondary auth-btn" onclick="loginAsAdmin()">
+                            🔐 Admin kimi daxil ol
+                        </button>
+                        <button type="button" class="btn btn-secondary auth-btn" onclick="loginAsCaptain()">
+                            👨‍✈️ Kapitan kimi daxil ol
+                        </button>
+                        <button type="button" class="btn btn-secondary auth-btn" onclick="loginAsFieldOwner()">
+                            🏟️ Meydança sahibi kimi daxil ol
+                        </button>
+                        <button type="button" class="btn btn-secondary auth-btn" onclick="loginAsOrganizer()">
+                            🏆 Təşkilatçı kimi daxil ol
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>
