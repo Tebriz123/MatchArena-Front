@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turnir Yarat - MatchArena</title>
+    <title>Turniri Yenilə - MatchArena</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -37,10 +37,10 @@
     <!-- Main Content -->
     <main>
         <div class="form-container">
-            <h1 class="section-title">Yeni Turnir Yarat</h1>
-            <p class="section-subtitle">Yeni turnir təşkil edin və idarə edin</p>
+            <h1 class="section-title">Turniri Yenilə</h1>
+            <p class="section-subtitle">Turnir məlumatlarını redaktə edin</p>
 
-            <form class="create-form" id="createTournamentForm">
+            <form class="create-form" id="updateTournamentForm">
                 <div class="form-section">
                     <h3 class="form-section-title">Əsas Məlumatlar</h3>
                     
@@ -108,73 +108,83 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="entryFee" class="form-label">Giriş Haqqı (₼)</label>
-                            <input type="number" id="entryFee" name="entryFee" class="form-input" min="0" step="0.01" value="0" placeholder="0">
+                            <label for="format" class="form-label">Format *</label>
+                            <select id="format" name="format" class="form-input" required>
+                                <option value="">Format seçin</option>
+                                <option value="knockout">Kubok sistemi</option>
+                                <option value="league">Liqa</option>
+                                <option value="group-knockout">Qrup + Play-off</option>
+                                <option value="round-robin">Dairəvi</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="prizePool" class="form-label">Mükafat Fondu (₼)</label>
-                            <input type="number" id="prizePool" name="prizePool" class="form-input" min="0" step="0.01" value="0" placeholder="0">
+                            <label for="teamSize" class="form-label">Komanda Ölçüsü *</label>
+                            <select id="teamSize" name="teamSize" class="form-input" required>
+                                <option value="">Ölçü seçin</option>
+                                <option value="5">5 oyunçu</option>
+                                <option value="7">7 oyunçu</option>
+                                <option value="11">11 oyunçu</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="format" class="form-label">Turnir Formatı *</label>
-                        <select id="format" name="format" class="form-input" required>
-                            <option value="">Format seçin</option>
-                            <option value="knockout">Kubok (Playoff)</option>
-                            <option value="league">Liqa (Dövri)</option>
-                            <option value="group">Qrup + Playoff</option>
-                            <option value="swiss">İsveçrə sistemi</option>
-                        </select>
-                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entryFee" class="form-label">Qeydiyyat Haqqı (AZN)</label>
+                            <input type="number" id="entryFee" name="entryFee" class="form-input" min="0" step="0.01" value="0" placeholder="Məs. 100.00">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="matchDuration" class="form-label">Oyun Müddəti (dəqiqə) *</label>
-                        <select id="matchDuration" name="matchDuration" class="form-input" required>
-                            <option value="30">30 dəqiqə (2x15)</option>
-                            <option value="40">40 dəqiqə (2x20)</option>
-                            <option value="50">50 dəqiqə (2x25)</option>
-                            <option value="60">60 dəqiqə (2x30)</option>
-                            <option value="90" selected>90 dəqiqə (2x45)</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="prizeMoney" class="form-label">Mükafat Fondu (AZN)</label>
+                            <input type="number" id="prizeMoney" name="prizeMoney" class="form-input" min="0" step="0.01" value="0" placeholder="Məs. 1000.00">
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-section">
-                    <h3 class="form-section-title">Əlavə Məlumatlar</h3>
+                    <h3 class="form-section-title">Status və Qaydalar</h3>
                     
                     <div class="form-group">
                         <label for="status" class="form-label">Status *</label>
                         <select id="status" name="status" class="form-input" required>
-                            <option value="registration">Qeydiyyat açıq</option>
-                            <option value="upcoming">Gözlənilir</option>
+                            <option value="upcoming">Gələcək</option>
+                            <option value="registration">Qeydiyyat açıqdır</option>
                             <option value="ongoing">Davam edir</option>
                             <option value="completed">Başa çatdı</option>
+                            <option value="cancelled">Ləğv edildi</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="description" class="form-label">Təsvir</label>
-                        <textarea id="description" name="description" class="form-textarea" rows="5" placeholder="Turnir haqqında ətraflı məlumat yazın..."></textarea>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="acceptingRegistrations" name="acceptingRegistrations" checked>
+                                <span>Qeydiyyat açıqdır</span>
+                            </label>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="rules" class="form-label">Qaydalar</label>
-                        <textarea id="rules" name="rules" class="form-textarea" rows="4" placeholder="Turnir qaydalarını yazın..."></textarea>
+                        <textarea id="rules" name="rules" class="form-input" rows="4" placeholder="Turnir qaydalarını daxil edin..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">Təsvir</label>
+                        <textarea id="description" name="description" class="form-input" rows="4" placeholder="Turnir haqqında əlavə məlumat..."></textarea>
                     </div>
                 </div>
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='tournaments.html'">Ləğv et</button>
-                    <button type="submit" class="btn btn-primary">Turnir Yarat</button>
+                    <button type="submit" class="btn btn-primary">Dəyişiklikləri Yadda Saxla</button>
                 </div>
             </form>
         </div>
     </main>
 
-    <script src="assets/js/app.js"></script>
     <script src="assets/js/auth.js"></script>
-    <script src="assets/js/create-tournament.js"></script>
+    <script src="assets/js/update-tournament.js"></script>
 </body>
 </html>

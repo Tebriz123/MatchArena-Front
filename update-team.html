@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komanda Yarat - MatchArena</title>
+    <title>Komandanı Yenilə - MatchArena</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -37,10 +37,10 @@
     <!-- Main Content -->
     <main>
         <div class="form-container">
-            <h1 class="section-title">Yeni Komanda Yarat</h1>
-            <p class="section-subtitle">Yeni futbol komandası yaradın və idarə edin</p>
+            <h1 class="section-title">Komandanı Yenilə</h1>
+            <p class="section-subtitle">Komanda məlumatlarını redaktə edin</p>
 
-            <form class="create-form" id="createTeamForm">
+            <form class="create-form" id="updateTeamForm">
                 <div class="form-section">
                     <h3 class="form-section-title">Əsas Məlumatlar</h3>
                     
@@ -105,10 +105,9 @@
                     <h3 class="form-section-title">Əlavə Məlumatlar</h3>
                     
                     <div class="form-group">
-                        <label class="form-label">Status</label>
-                        <div class="form-checkbox-group">
+                        <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="lookingForPlayers" id="lookingForPlayers">
+                                <input type="checkbox" id="lookingForPlayers" name="lookingForPlayers">
                                 <span>Oyunçu axtarır</span>
                             </label>
                         </div>
@@ -116,20 +115,19 @@
 
                     <div class="form-group">
                         <label for="description" class="form-label">Təsvir</label>
-                        <textarea id="description" name="description" class="form-textarea" rows="4" placeholder="Komanda haqqında məlumat yazın..."></textarea>
+                        <textarea id="description" name="description" class="form-input" rows="4" placeholder="Komanda haqqında qısa məlumat..."></textarea>
                     </div>
                 </div>
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='teams.html'">Ləğv et</button>
-                    <button type="submit" class="btn btn-primary">Komanda Yarat</button>
+                    <button type="submit" class="btn btn-primary">Dəyişiklikləri Yadda Saxla</button>
                 </div>
             </form>
         </div>
     </main>
 
-    <script src="assets/js/app.js"></script>
     <script src="assets/js/auth.js"></script>
-    <script src="assets/js/create-team.js"></script>
+    <script src="assets/js/update-team.js"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komanda Profili - MatchArena</title>
+    <title>Qarabag Legends - Komanda Profili | MatchArena</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/team-detail.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -13,171 +13,357 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="logo-icon">⚽</span>
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#22C55E"/>
+                        <path d="M16 6C10.48 6 6 10.48 6 16C6 21.52 10.48 26 16 26C21.52 26 26 21.52 26 16C26 10.48 21.52 6 16 6ZM16 24C11.59 24 8 20.41 8 16C8 11.59 11.59 8 16 8C20.41 8 24 11.59 24 16C24 20.41 20.41 24 16 24ZM16 10L13.5 12.5L11 10L10 14L14 15L16 18L18 15L22 14L21 10L18.5 12.5L16 10Z" fill="white"/>
+                    </svg>
                     <span>MatchArena</span>
                 </a>
             </div>
             <div class="nav-menu">
                 <a href="players.html" class="nav-link">Oyunçular</a>
-                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="teams.html" class="nav-link active">Komandalar</a>
                 <a href="fields.html" class="nav-link">Meydançalar</a>
                 <a href="tournaments.html" class="nav-link">Turnirler</a>
             </div>
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
                 <button class="notification-btn">🔔</button>
-                <span class="user-name">Daxil ol</span>
-                <button class="login-btn">Qeydiyyat</button>
+                <a href="login.html" class="user-name">Daxil ol</a>
+                <a href="register.html" class="login-btn">Qeydiyyat</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main style="max-width: 1000px; margin: 0 auto; padding: 2rem;">
-        <a href="teams.html" style="color: var(--primary-color); text-decoration: none; margin-bottom: 2rem; display: inline-block;">← Komandalar qayıt</a>
+    <main class="team-detail-container">
+        <a href="teams.html" class="team-back-link">← Komandalar səhifəsinə qayıt</a>
 
-        <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 2rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
-            <div style="display: grid; grid-template-columns: 150px 1fr; gap: 2rem; align-items: start;">
-                <div style="background: linear-gradient(135deg, var(--primary-color), #3b82f6); width: 150px; height: 150px; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold;">Q</div>
+        <div class="team-profile-card">
+            <div class="team-profile-grid">
+                <div class="team-logo">Q</div>
                 
-                <div>
-                    <h1 style="margin: 0 0 0.5rem 0; font-size: 2rem;">Qarabag Legends</h1>
-                    <p style="color: var(--text-muted); margin: 0 0 1rem 0;">Kapitain: Öli Kazimov • 🏠 Baki</p>
+                <div class="team-profile-info">
+                    <h1>Qarabag Legends</h1>
+                    <p class="team-profile-subtitle">Kapitan: Öli Kazimov • 🏠 Bakı • Qurulma: 2020</p>
                     
-                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                        <div style="background-color: rgba(34, 197, 94, 0.1); padding: 0.75rem 1.5rem; border-radius: 0.5rem;">
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">Oyunçular</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">15/15</div>
+                    <div class="team-stats-cards">
+                        <div class="stat-card stat-card-members">
+                            <div class="stat-card-label">Oyunçular</div>
+                            <div class="stat-card-value stat-card-value-members">15/15</div>
                         </div>
-                        <div style="background-color: rgba(59, 130, 246, 0.1); padding: 0.75rem 1.5rem; border-radius: 0.5rem;">
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">Reytinq</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #3b82f6;">⭐ 4.9</div>
+                        <div class="stat-card stat-card-rating">
+                            <div class="stat-card-label">Reytinq</div>
+                            <div class="stat-card-value stat-card-value-rating">⭐ 4.9</div>
                         </div>
-                        <div style="background-color: rgba(249, 115, 22, 0.1); padding: 0.75rem 1.5rem; border-radius: 0.5rem;">
-                            <div style="color: var(--text-muted); font-size: 0.9rem;">Oyunlar</div>
-                            <div style="font-size: 1.5rem; font-weight: bold; color: #f97316;">67</div>
+                        <div class="stat-card stat-card-games">
+                            <div class="stat-card-label">Oyunlar</div>
+                            <div class="stat-card-value stat-card-value-games">67</div>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 1rem;">
-                        <button style="background-color: var(--primary-color); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600;">Komandaya Qoşul</button>
-                        <button style="background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600;">Mesaj Göndər</button>
+                    <div class="team-action-buttons">
+                        <button class="btn-join" onclick="alert('Qoşulmaq funksiyası tezliklə əlavə ediləcək')">Komandaya Qoşul</button>
+                        <button class="btn-message" onclick="alert('Mesaj göndərmək funksiyası tezliklə əlavə ediləcək')">Mesaj Göndər</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div class="team-content-grid">
             <!-- Left Column -->
             <div>
-                <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
-                    <h2 style="margin-top: 0;">Komanda Məlumatları</h2>
+                <div class="team-info-card">
+                    <h2>Komanda Məlumatları</h2>
                     
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Kapitain</span>
-                        <span style="font-weight: 600;">Öli Kazimov</span>
+                    <div class="team-info-row">
+                        <span class="team-info-label">Kapitan</span>
+                        <span class="team-info-value">Öli Kazimov</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Şəhər</span>
-                        <span style="font-weight: 600;">Baki</span>
+                    <div class="team-info-row">
+                        <span class="team-info-label">Şəhər</span>
+                        <span class="team-info-value">Bakı</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Üzv Sayı</span>
-                        <span style="font-weight: 600;">15</span>
+                    <div class="team-info-row">
+                        <span class="team-info-label">Üzv Sayı</span>
+                        <span class="team-info-value">15</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                        <span style="color: var(--text-muted);">Qurulduğu tarix</span>
-                        <span style="font-weight: 600;">2020</span>
+                    <div class="team-info-row">
+                        <span class="team-info-label">Qurulduğu il</span>
+                        <span class="team-info-value">2020</span>
+                    </div>
+
+                    <div class="team-info-row">
+                        <span class="team-info-label">Status</span>
+                        <span class="team-info-value">Aktiv</span>
                     </div>
                 </div>
 
-                <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--border-color);">
-                    <h2 style="margin-top: 0;">Komanda Statistikası</h2>
+                <div class="team-stats-card">
+                    <h2>Komanda Statistikası</h2>
                     
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Oyunlar</span>
-                        <span style="font-weight: 600; font-size: 1.2rem;">67</span>
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Ümumi Oyunlar</span>
+                        <span class="team-stat-value">67</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Qalabalar</span>
-                        <span style="font-weight: 600; font-size: 1.2rem;">45</span>
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Qələbələr</span>
+                        <span class="team-stat-value">45</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);">
-                        <span style="color: var(--text-muted);">Bərabərlər</span>
-                        <span style="font-weight: 600; font-size: 1.2rem;">12</span>
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Bərabərlər</span>
+                        <span class="team-stat-value">12</span>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; padding: 0.75rem 0;">
-                        <span style="color: var(--text-muted);">Məğlubiyyətlər</span>
-                        <span style="font-weight: 600; font-size: 1.2rem;">10</span>
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Məğlubiyyətlər</span>
+                        <span class="team-stat-value">10</span>
+                    </div>
+
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Qələbə Faizi</span>
+                        <span class="team-stat-value team-stat-win-rate">67.2%</span>
+                    </div>
+
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Atılan Qollar</span>
+                        <span class="team-stat-value">142</span>
+                    </div>
+
+                    <div class="team-stat-row">
+                        <span class="team-stat-label">Yeyilən Qollar</span>
+                        <span class="team-stat-value">78</span>
                     </div>
                 </div>
             </div>
 
             <!-- Right Column -->
             <div>
-                <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
-                    <h2 style="margin-top: 0;">Top Oyunçular</h2>
+                <div class="team-players-card">
+                    <h2>Komanda Oyunçuları (15)</h2>
                     
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: rgba(34, 197, 94, 0.05); border-radius: 0.5rem;">
-                            <div>
-                                <div style="font-weight: 600;">Nihad Qasimov</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Qapiçi</div>
+                    <div class="team-players-list">
+                        <a href="player-detail.html" class="player-card player-card-0">
+                            <div class="player-info">
+                                <div class="player-name">Öli Kazimov</div>
+                                <div class="player-details">Qapıçı • 32 yaş</div>
                             </div>
-                            <div style="text-align: right;">
-                                <div style="font-weight: 600; color: var(--primary-color);">⭐ 4.9</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">312 oyun</div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-0">⭐ 4.9</div>
+                                <div class="player-games">67 oyun</div>
                             </div>
-                        </div>
+                            <div class="player-arrow">→</div>
+                        </a>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: rgba(59, 130, 246, 0.05); border-radius: 0.5rem;">
-                            <div>
-                                <div style="font-weight: 600;">Elvin Hüseynov</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Müdəfi</div>
+                        <a href="player-detail.html" class="player-card player-card-1">
+                            <div class="player-info">
+                                <div class="player-name">Nihad Qasimov</div>
+                                <div class="player-details">Müdafi • 30 yaş</div>
                             </div>
-                            <div style="text-align: right;">
-                                <div style="font-weight: 600; color: #3b82f6;">⭐ 4.8</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">267 oyun</div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-1">⭐ 4.8</div>
+                                <div class="player-games">65 oyun</div>
                             </div>
-                        </div>
+                            <div class="player-arrow">→</div>
+                        </a>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background-color: rgba(249, 115, 22, 0.05); border-radius: 0.5rem;">
-                            <div>
-                                <div style="font-weight: 600;">Samair Rəhimov</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Hücumçu</div>
+                        <a href="player-detail.html" class="player-card player-card-2">
+                            <div class="player-info">
+                                <div class="player-name">Elvin Hüseynov</div>
+                                <div class="player-details">Müdafi • 28 yaş</div>
                             </div>
-                            <div style="text-align: right;">
-                                <div style="font-weight: 600; color: #f97316;">⭐ 4.7</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">245 oyun</div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-2">⭐ 4.7</div>
+                                <div class="player-games">62 oyun</div>
                             </div>
-                        </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-3">
+                            <div class="player-info">
+                                <div class="player-name">Tural Məmmədov</div>
+                                <div class="player-details">Orta sahə • 26 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-3">⭐ 4.8</div>
+                                <div class="player-games">64 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-4">
+                            <div class="player-info">
+                                <div class="player-name">Rəşad Əliyev</div>
+                                <div class="player-details">Orta sahə • 25 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-4">⭐ 4.6</div>
+                                <div class="player-games">58 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-0">
+                            <div class="player-info">
+                                <div class="player-name">Fərid Məmmədov</div>
+                                <div class="player-details">Hücumçu • 24 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-0">⭐ 4.9</div>
+                                <div class="player-games">67 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-1">
+                            <div class="player-info">
+                                <div class="player-name">Samir Rəhimov</div>
+                                <div class="player-details">Hücumçu • 23 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-1">⭐ 4.7</div>
+                                <div class="player-games">61 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-2">
+                            <div class="player-info">
+                                <div class="player-name">Aydın Məmmədov</div>
+                                <div class="player-details">Müdafi • 29 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-2">⭐ 4.5</div>
+                                <div class="player-games">55 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-3">
+                            <div class="player-info">
+                                <div class="player-name">Kamran Həsənov</div>
+                                <div class="player-details">Orta sahə • 27 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-3">⭐ 4.6</div>
+                                <div class="player-games">59 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-4">
+                            <div class="player-info">
+                                <div class="player-name">Orxan İsmayılov</div>
+                                <div class="player-details">Hücumçu • 22 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-4">⭐ 4.4</div>
+                                <div class="player-games">52 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-0">
+                            <div class="player-info">
+                                <div class="player-name">Elnur Abbasov</div>
+                                <div class="player-details">Müdafi • 31 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-0">⭐ 4.7</div>
+                                <div class="player-games">63 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-1">
+                            <div class="player-info">
+                                <div class="player-name">Cavid Məmmədli</div>
+                                <div class="player-details">Orta sahə • 26 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-1">⭐ 4.5</div>
+                                <div class="player-games">56 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-2">
+                            <div class="player-info">
+                                <div class="player-name">Ramin Quliyev</div>
+                                <div class="player-details">Hücumçu • 24 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-2">⭐ 4.6</div>
+                                <div class="player-games">60 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-3">
+                            <div class="player-info">
+                                <div class="player-name">Vüqar Məmmədov</div>
+                                <div class="player-details">Müdafi • 28 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-3">⭐ 4.4</div>
+                                <div class="player-games">54 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
+
+                        <a href="player-detail.html" class="player-card player-card-4">
+                            <div class="player-info">
+                                <div class="player-name">Ələkbər Əliyev</div>
+                                <div class="player-details">Qapıçı • 29 yaş</div>
+                            </div>
+                            <div class="player-stats">
+                                <div class="player-rating player-rating-4">⭐ 4.3</div>
+                                <div class="player-games">45 oyun</div>
+                            </div>
+                            <div class="player-arrow">→</div>
+                        </a>
                     </div>
                 </div>
 
-                <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; border: 1px solid var(--border-color);">
-                    <h2 style="margin-top: 0;">Komanda Rəyləri</h2>
-                    <p style="color: var(--text-muted); margin: 0;">45 rəy (⭐ 4.9 ortalama)</p>
+                <div class="team-reviews-card">
+                    <h2>Komanda Rəyləri</h2>
+                    <p class="reviews-subtitle">12 rəy (⭐ 4.8 ortalama)</p>
                     
-                    <div style="margin-top: 1rem;">
-                        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
-                            <div style="width: 40px; height: 40px; background-color: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-weight: bold;">F</div>
-                            <div>
-                                <div style="font-weight: 600;">Fərid Məmmədov</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Müasır komanda, yüksək səviyyə</div>
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-avatar review-avatar-1">F</div>
+                            <div class="review-content">
+                                <div class="review-name">Fuad Əhmədov</div>
+                                <div class="review-text">Çox güclü və peşəkar komanda. Birlikdə oynamaq zövq verir!</div>
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 1rem;">
-                            <div style="width: 40px; height: 40px; background-color: rgba(59, 130, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #3b82f6; font-weight: bold;">A</div>
-                            <div>
-                                <div style="font-weight: 600;">Aydın Məmmədov</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Güzəl oyunçular, qabala təcrübəsi</div>
+                        <div class="review-item">
+                            <div class="review-avatar review-avatar-2">R</div>
+                            <div class="review-content">
+                                <div class="review-name">Rəşad Mustafayev</div>
+                                <div class="review-text">Əla komanda, yüksək səviyyəli oyunçular. Məsləhət görürəm!</div>
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-avatar review-avatar-1">E</div>
+                            <div class="review-content">
+                                <div class="review-name">Emil Qasımov</div>
+                                <div class="review-text">Komanda ruhu çox güclüdür. Hər kəsə tövsiyə edirəm.</div>
+                            </div>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-avatar review-avatar-2">N</div>
+                            <div class="review-content">
+                                <div class="review-name">Nicat Həsənov</div>
+                                <div class="review-text">Professional yanaşma, keyfiyyətli oyun. 5 ulduz!</div>
                             </div>
                         </div>
                     </div>
@@ -218,36 +404,36 @@
                 <h4>Şirkət</h4>
                 <ul>
                     <li><a href="#">Haqqımızda</a></li>
-                    <li><a href="#">Blaqo</a></li>
-                    <li><a href="#">Karyera</a></li>
                     <li><a href="#">Blog</a></li>
+                    <li><a href="#">Karyera</a></li>
+                    <li><a href="#">Əlaqə</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Dəstək</h4>
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Dəstək</a></li>
-                    <li><a href="#">Şərtlər</a></li>
-                    <li><a href="#">Gizlilik</a></li>
+                    <li><a href="#">Yardım Mərkəzi</a></li>
+                    <li><a href="#">İstifadə Şərtləri</a></li>
+                    <li><a href="#">Gizlilik Siyasəti</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Bizimlə Əlaqə</h4>
                 <p>📧 info@matcharena.az</p>
                 <p>📱 +994 50 123 45 67</p>
+                <p>📍 Bakı, Azərbaycan</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MatchArena. Bütün hüquqlar qorunur.</p>
+            <p>&copy; 2026 MatchArena. Bütün hüquqlar qorunur.</p>
             <div class="footer-links">
-                <a href="#">Şərtlər</a>
+                <a href="#">İstifadə Şərtləri</a>
                 <a href="#">Gizlilik</a>
             </div>
         </div>
     </footer>
 
-  <script src="assets/js/app.js"></script>
-    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

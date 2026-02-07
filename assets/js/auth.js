@@ -24,6 +24,11 @@ const PERMISSIONS = {
     DELETE_TEAM: 'delete_team',
     MANAGE_TEAM_MEMBERS: 'manage_team_members',
     
+    // Player permissions
+    CREATE_PLAYER: 'create_player',
+    EDIT_PLAYER: 'edit_player',
+    DELETE_PLAYER: 'delete_player',
+    
     // Field permissions
     CREATE_FIELD: 'create_field',
     EDIT_FIELD: 'edit_field',
@@ -54,6 +59,9 @@ const ROLE_PERMISSIONS = {
         PERMISSIONS.EDIT_TEAM,
         PERMISSIONS.DELETE_TEAM,
         PERMISSIONS.MANAGE_TEAM_MEMBERS,
+        PERMISSIONS.CREATE_PLAYER,
+        PERMISSIONS.EDIT_PLAYER,
+        PERMISSIONS.DELETE_PLAYER,
         PERMISSIONS.CREATE_FIELD,
         PERMISSIONS.EDIT_FIELD,
         PERMISSIONS.DELETE_FIELD,
@@ -68,10 +76,12 @@ const ROLE_PERMISSIONS = {
     ],
     
     [ROLES.CAPTAIN]: [
-        // Captain can manage teams
+        // Captain can manage teams and players
         PERMISSIONS.CREATE_TEAM,
         PERMISSIONS.EDIT_TEAM,
         PERMISSIONS.MANAGE_TEAM_MEMBERS,
+        PERMISSIONS.CREATE_PLAYER,
+        PERMISSIONS.EDIT_PLAYER,
         PERMISSIONS.VIEW_CONTENT,
         PERMISSIONS.CREATE_REVIEW,
         PERMISSIONS.EDIT_PROFILE
