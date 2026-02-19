@@ -129,7 +129,17 @@ class AuthManager {
     // Get current user from localStorage
     static getCurrentUser() {
         const userStr = localStorage.getItem('user');
-        return userStr ? JSON.parse(userStr) : null;
+        if (!userStr) return null;
+        
+        const user = JSON.parse(userStr);
+        
+        // Ensure hasPlayerProfile exists for backward compatibility
+        if (user && user.hasPlayerProfile === undefined) {
+            user.hasPlayerProfile = false;
+            user.playerProfileId = null;
+        }
+        
+        return user;
     }
     
     // Check if user is logged in

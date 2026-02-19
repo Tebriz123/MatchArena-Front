@@ -69,8 +69,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 role: formData.role,
                 newsletter: formData.newsletter,
                 createdAt: new Date().toISOString(),
-                isActive: true
+                isActive: true,
+                hasPlayerProfile: false, // Initially no player profile
+                playerProfileId: null
             };
+
+            // Add face image if captured
+            if (capturedFaceImage) {
+                user.faceImage = capturedFaceImage;
+                // Also save separately for easy access
+                localStorage.setItem(`faceImage_${user.email}`, capturedFaceImage);
+                localStorage.setItem(`profileImage_${user.id}`, capturedFaceImage);
+            }
 
             // Store user data
             localStorage.setItem('user', JSON.stringify(user));
@@ -89,5 +99,124 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'index.html';
             }
         });
+    }
+
+    // Face Registration Functionality
+    const startFaceCaptureBtn = document.getElementById('startFaceCapture');
+    const captureFaceRegisterBtn = document.getElementById('captureFaceRegister');
+    const retakeFacePhotoBtn = document.getElementById('retakeFacePhoto');
+    const removeFacePhotoBtn = document.getElementById('removeFacePhoto');
+    const faceCameraWrapper = document.getElementById('faceCameraWrapper');
+    const facePreviewWrapper = document.getElementById('facePreviewWrapper');
+    const faceRegisterVideo = document.getElementById('faceRegisterVideo');
+    const faceRegisterCanvas = document.getElementById('faceRegisterCanvas');
+    const faceRegisterStatus = document.getElementById('faceRegisterStatus');
+    const faceImageDataInput = document.getElementById('faceImageData');
+    const facePreviewImg = document.getElementById('facePreview');
+
+    let isFaceCameraActive = false;
+    let capturedFaceImage = null;
+
+    // Üz şəkli çəkməyə başla
+    if (startFaceCaptureBtn) {
+        startFaceCaptureBtn.addEventListener('click', async function() {
+            faceCameraWrapper.style.display = 'block';
+            this.style.display = 'none';
+            captureFaceRegisterBtn.style.display = 'inline-block';
+            
+            faceRegisterStatus.innerHTML = '<div class="loading">🎥 Kamera açılır...</div>';
+
+            const cameraStarted = await window.FaceRecognition.startCamera(faceRegisterVideo);
+            
+            if (cameraStarted) {
+                isFaceCameraActive = true;
+                faceRegisterStatus.innerHTML = '<div class="success">✅ Üzünüzü kameraya tutun və şəkil çəkin</div>';
+            } else {
+                faceRegisterStatus.innerHTML = '<div class="error">❌ Kamera açıla bilmədi</div>';
+                resetFaceCapture();
+            }
+        });
+    }
+
+    // Şəkil çək
+    if (captureFaceRegisterBtn) {
+        captureFaceRegisterBtn.addEventListener('click', function() {
+            if (!isFaceCameraActive) {
+                faceRegisterStatus.innerHTML = '<div class="error">❌ Kamera aktiv deyil</div>';
+                return;
+            }
+
+            // Şəkil çək
+            capturedFaceImage = window.FaceRecognition.captureImage(faceRegisterVideo, faceRegisterCanvas);
+            
+            // Şəkil keyfiyyətini yoxla
+            const quality = window.FaceRecognition.checkImageQuality(faceRegisterCanvas);
+            
+            if (!quality.valid) {
+                faceRegisterStatus.innerHTML = `<div class="error">❌ ${quality.message}</div>`;
+                return;
+            }
+
+            // Şəkili göstər
+            facePreviewImg.src = capturedFaceImage;
+            facePreviewWrapper.style.display = 'block';
+            
+            // Hidden input'a məlumatı yaz
+            faceImageDataInput.value = capturedFaceImage;
+
+            // Kameranı bağla və düymələri dəyiş
+            window.FaceRecognition.stopCamera();
+            isFaceCameraActive = false;
+            faceCameraWrapper.style.display = 'none';
+            captureFaceRegisterBtn.style.display = 'none';
+            retakeFacePhotoBtn.style.display = 'inline-block';
+            removeFacePhotoBtn.style.display = 'inline-block';
+
+            faceRegisterStatus.innerHTML = `<div class="success">✅ Üz şəkli qeyd edildi (${quality.sizeInKB} KB)</div>`;
+        });
+    }
+
+    // Yenidən çək
+    if (retakeFacePhotoBtn) {
+        retakeFacePhotoBtn.addEventListener('click', async function() {
+            facePreviewWrapper.style.display = 'none';
+            faceCameraWrapper.style.display = 'block';
+            this.style.display = 'none';
+            removeFacePhotoBtn.style.display = 'none';
+            captureFaceRegisterBtn.style.display = 'inline-block';
+            
+            faceRegisterStatus.innerHTML = '<div class="loading">🎥 Kamera açılır...</div>';
+
+            const cameraStarted = await window.FaceRecognition.startCamera(faceRegisterVideo);
+            
+            if (cameraStarted) {
+                isFaceCameraActive = true;
+                faceRegisterStatus.innerHTML = '<div class="success">✅ Yenidən çəkin</div>';
+            } else {
+                faceRegisterStatus.innerHTML = '<div class="error">❌ Kamera açıla bilmədi</div>';
+                resetFaceCapture();
+            }
+        });
+    }
+
+    // Şəkli sil
+    if (removeFacePhotoBtn) {
+        removeFacePhotoBtn.addEventListener('click', function() {
+            capturedFaceImage = null;
+            faceImageDataInput.value = '';
+            resetFaceCapture();
+            faceRegisterStatus.innerHTML = '<div class="info">ℹ️ Üz şəkli silindi</div>';
+        });
+    }
+
+    function resetFaceCapture() {
+        window.FaceRecognition.stopCamera();
+        isFaceCameraActive = false;
+        faceCameraWrapper.style.display = 'none';
+        facePreviewWrapper.style.display = 'none';
+        captureFaceRegisterBtn.style.display = 'none';
+        retakeFacePhotoBtn.style.display = 'none';
+        removeFacePhotoBtn.style.display = 'none';
+        if (startFaceCaptureBtn) startFaceCaptureBtn.style.display = 'inline-block';
     }
 });

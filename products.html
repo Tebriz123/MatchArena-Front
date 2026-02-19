@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol Məhsulları - MatchArena</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/payment-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#22C55E"/>
+                        <path d="M16 6C10.48 6 6 10.48 6 16C6 21.52 10.48 26 16 26C21.52 26 26 21.52 26 16C26 10.48 21.52 6 16 6ZM16 24C11.59 24 8 20.41 8 16C8 11.59 11.59 8 16 8C20.41 8 24 11.59 24 16C24 20.41 20.41 24 16 24ZM16 10L13.5 12.5L11 10L10 14L14 15L16 18L18 15L22 14L21 10L18.5 12.5L16 10Z" fill="white"/>
+                    </svg>
+                    <span>MatchArena</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link active">Məhsullar</a>
+            </div>
+            <div class="nav-right">
+                <a href="cart.html" class="cart-btn">
+                    🛒
+                    <span class="cart-badge" id="cartBadgeNav">0</span>
+                </a>
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <a href="login.html" class="user-name">Daxil ol</a>
+                <a href="register.html" class="login-btn">Qeydiyyat</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="products-page">
+        <div class="page-container">
+            <!-- Page Title -->
+            <div class="page-header">
+                <h1>Futbol Məhsulları</h1>
+                <p>Keyfiyyətli idman və futbol aksesuarları</p>
+            </div>
+
+            <!-- Filters Section -->
+            <div class="products-filters">
+                <div class="filter-search">
+                    <input type="text" id="searchInput" placeholder="Məhsul axtar..." class="search-input">
+                    <button class="search-btn" onclick="performSearch()">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                            <circle cx="8" cy="8" r="6" stroke-width="2"/>
+                            <path d="M13 13L17 17" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <select id="categoryFilter" class="filter-dropdown" onchange="applyFilters()">
+                    <option value="">Bütün kateqoriyalar</option>
+                    <option value="balls">⚽ Toplar</option>
+                    <option value="jerseys">👕 Formalar</option>
+                    <option value="boots">👟 Botinlər</option>
+                    <option value="accessories">🎽 Aksessuarlar</option>
+                    <option value="training">🏋️ Məşq</option>
+                    <option value="goalkeeper">🧤 Qapıçı</option>
+                </select>
+
+                <select id="priceFilter" class="filter-dropdown" onchange="applyFilters()">
+                    <option value="">Bütün qiymətlər</option>
+                    <option value="0-50">0₼ - 50₼</option>
+                    <option value="50-100">50₼ - 100₼</option>
+                    <option value="100-200">100₼ - 200₼</option>
+                    <option value="200+">200₼+</option>
+                </select>
+
+                <select id="sortFilter" class="filter-dropdown" onchange="applyFilters()">
+                    <option value="newest">Ən yeni</option>
+                    <option value="price-low">Ucuzdan bahaya</option>
+                    <option value="price-high">Bahadan ucuza</option>
+                    <option value="popular">Ən populyar</option>
+                </select>
+
+                <button class="filter-reset" onclick="resetFilters()">Sıfırla</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="products-grid-modern"></div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-container" style="display: none;">
+                <div class="spinner"></div>
+                <p>Yüklənir...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-container" style="display: none;">
+                <div class="empty-icon">📦</div>
+                <h3>Məhsul tapılmadı</h3>
+                <p>Axtarış meyarlarınızı dəyişdirin</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 MatchArena. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/products.js"></script>
+    <script>
+        // Update cart badge on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById('cartBadgeNav');
+            if (badge) {
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        });
+    </script>
+</body>
+</html>

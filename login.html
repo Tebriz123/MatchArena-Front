@@ -24,6 +24,7 @@
                 <a href="teams.html" class="nav-link">Komandalar</a>
                 <a href="fields.html" class="nav-link">Meydançalar</a>
                 <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link">Məhsullar</a>
             </div>
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
@@ -79,6 +80,32 @@
                     </button>
                 </div>
 
+                <!-- Face Recognition Login -->
+                <div class="auth-divider">
+                    <span>Üzə tanıma ilə daxil ol</span>
+                </div>
+
+                <div class="face-recognition-container" id="faceLoginContainer" style="display: none;">
+                    <div class="face-camera-wrapper">
+                        <video id="faceLoginVideo" autoplay playsinline></video>
+                        <canvas id="faceLoginCanvas" style="display: none;"></canvas>
+                        <div id="faceLoginPreview" class="face-preview" style="display: none;"></div>
+                    </div>
+                    <div class="face-controls">
+                        <button type="button" class="btn btn-secondary" id="captureFaceLogin">
+                            📸 Şəkil çək və daxil ol
+                        </button>
+                        <button type="button" class="btn btn-outline" id="cancelFaceLogin">
+                            ❌ İmtina et
+                        </button>
+                    </div>
+                    <div id="faceLoginStatus" class="face-status"></div>
+                </div>
+
+                <button type="button" class="btn btn-primary auth-btn" id="startFaceLogin">
+                    👤 Üzə tanıma ilə daxil ol
+                </button>
+
                 <div class="auth-footer">
                     Hesabınız yoxdur? <a href="register.html" class="auth-link">Qeydiyyatdan keç</a>
                 </div>
@@ -109,6 +136,8 @@
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/demo-data.js"></script>
+    <script src="assets/js/face-recognition.js"></script>
     <script src="assets/js/login.js"></script>
 </body>
 </html>

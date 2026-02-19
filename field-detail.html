@@ -6,6 +6,7 @@
     <title>Meydança Profili - MatchArena</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/inline-styles.css">
+    <link rel="stylesheet" href="assets/css/payment-styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -42,7 +43,7 @@
         <!-- Field Header -->
         <div class="detail-card detail-header">
             <div class="detail-header-grid-field">
-                <div class="detail-avatar-field"><img src="assets/img/fields/field1.jpg" alt="Mini Futbol Arena"></div>
+                <div class="detail-avatar-field"><img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Mini Futbol Arena"></div>
                 
                 <div class="detail-info">
                     <h1 class="detail-title">Mini Futbol Arena</h1>
@@ -64,8 +65,39 @@
                     </div>
 
                     <div class="detail-actions">
-                        <button class="btn-action-primary">Rezerv Et</button>
+                        <button class="btn-action-primary" onclick="openReservationModal()">Rezerv Et</button>
                         <button class="btn-action-secondary">Mesaj Göndər</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Field Images Gallery -->
+        <div class="detail-card">
+            <h2 class="detail-card-title">Meydança Şəkilləri</h2>
+            
+            <div class="field-images-gallery">
+                <div class="main-image-container">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Mini Futbol Arena - Əsas Şəkil" class="gallery-main-image">
+                    <span class="image-label">Əsas Şəkil</span>
+                </div>
+                
+                <div class="auxiliary-images">
+                    <div class="auxiliary-image-item">
+                        <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Köməkçi Şəkil 1" class="gallery-aux-image">
+                        <span class="image-label-small">Köməkçi Şəkil 1</span>
+                    </div>
+                    <div class="auxiliary-image-item">
+                        <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Köməkçi Şəkil 2" class="gallery-aux-image">
+                        <span class="image-label-small">Köməkçi Şəkil 2</span>
+                    </div>
+                    <div class="auxiliary-image-item">
+                        <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Köməkçi Şəkil 3" class="gallery-aux-image">
+                        <span class="image-label-small">Köməkçi Şəkil 3</span>
+                    </div>
+                    <div class="auxiliary-image-item">
+                        <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Köməkçi Şəkil 4" class="gallery-aux-image">
+                        <span class="image-label-small">Köməkçi Şəkil 4</span>
                     </div>
                 </div>
             </div>
@@ -176,6 +208,169 @@
         </div>
     </main>
 
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>Meydança Rezervasiyası</h2>
+                <span class="modal-close" onclick="closeReservationModal()">&times;</span>
+            </div>
+            
+            <!-- Progress Steps -->
+            <div class="modal-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Tarix & Saat</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Şəxsi Məlumatlar</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Ödəniş</div>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <form id="reservationForm">
+                    <!-- Step 1: Date & Time Selection -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">Rezervasiya Məlumatları</h3>
+                        
+                        <div class="form-group">
+                            <label for="reservationDate">Tarix *</label>
+                            <input type="date" id="reservationDate" class="form-input" required min="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Boş Saatlar *</label>
+                            <div id="availableSlots" class="time-slots-grid">
+                                <!-- Time slots will be loaded here -->
+                            </div>
+                            <input type="hidden" id="selectedTimeSlot" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="duration">Müddət *</label>
+                                <select id="duration" class="form-input" required onchange="updateTotal()">
+                                    <option value="1">1 saat</option>
+                                    <option value="2">2 saat</option>
+                                    <option value="3">3 saat</option>
+                                    <option value="4">4 saat</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="playerCount">İştirakçı sayı</label>
+                                <input type="number" id="playerCount" class="form-input" min="1" max="22" value="10">
+                            </div>
+                        </div>
+                        
+                        <div class="reservation-total">
+                            <div class="total-label">Ümumi məbləğ:</div>
+                            <div class="total-amount" id="totalAmount">120₼</div>
+                        </div>
+                        
+                        <button type="button" class="btn-large btn-primary" onclick="nextStep(2)">Növbəti</button>
+                    </div>
+                    
+                    <!-- Step 2: Personal Information -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">Şəxsi Məlumatlar</h3>
+                        
+                        <div class="form-group">
+                            <label for="customerName">Ad Soyad *</label>
+                            <input type="text" id="customerName" class="form-input" required placeholder="Adınızı daxil edin">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerEmail">Email *</label>
+                            <input type="email" id="customerEmail" class="form-input" required placeholder="email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerPhone">Telefon *</label>
+                            <input type="tel" id="customerPhone" class="form-input" required placeholder="+994 XX XXX XX XX">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customerNote">Qeyd (istəyə bağlı)</label>
+                            <textarea id="customerNote" class="form-input" rows="3" placeholder="Əlavə qeydləriniz..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-large btn-secondary" onclick="prevStep(1)">Geri</button>
+                            <button type="button" class="btn-large btn-primary" onclick="nextStep(3)">Növbəti</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Payment -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">Ödəniş Məlumatları</h3>
+                        
+                        <div class="payment-summary-box">
+                            <div class="summary-row">
+                                <span>Meydança:</span>
+                                <strong id="summaryField"></strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tarix:</span>
+                                <strong id="summaryDate"></strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Saat:</span>
+                                <strong id="summaryTime"></strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Müddət:</span>
+                                <strong id="summaryDuration"></strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Ümumi məbləğ:</span>
+                                <strong id="summaryTotal"></strong>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kart Nömrəsi *</label>
+                            <div id="card-number-element-modal" class="stripe-element">
+                                <!-- Stripe Card Number Element -->
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Son İstifadə Tarixi *</label>
+                                <div id="card-expiry-element-modal" class="stripe-element">
+                                    <!-- Stripe Card Expiry Element -->
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>CVC *</label>
+                                <div id="card-cvc-element-modal" class="stripe-element">
+                                    <!-- Stripe Card CVC Element -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="card-errors-modal" class="error-message"></div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-large btn-secondary" onclick="prevStep(2)">Geri</button>
+                            <button type="submit" class="btn-large btn-primary" id="submitReservation">
+                                <span id="submitText">Ödəniş et və Təsdiqlə</span>
+                                <span id="submitLoader" class="spinner" style="display: none;"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -236,6 +431,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/field-detail.js"></script>
 </body>
 </html>

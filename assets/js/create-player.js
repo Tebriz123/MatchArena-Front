@@ -64,6 +64,46 @@ document.addEventListener('DOMContentLoaded', function() {
             players.push(formData);
             localStorage.setItem('players', JSON.stringify(players));
             
+            // Add initial team history if player has a current team
+            if (formData.currentTeam && window.PlayerHistoryManager) {
+                // Find team by name (simplified for demo)
+                const teams = JSON.parse(localStorage.getItem('teams') || '[]');
+                const currentTeam = teams.find(t => t.name.toLowerCase().includes(formData.currentTeam.toLowerCase()));
+                
+                if (currentTeam) {
+                    PlayerHistoryManager.addPlayerHistory(
+                        formData.id,
+                        currentTeam.id,
+                        currentTeam.name,
+                        {
+                            startDate: new Date().toISOString().split('T')[0],
+                            endDate: null,
+                            isCurrent: true
+                        },
+                        {
+                            matchesPlayed: formData.matchesPlayed || 0,
+                            wins: 0,
+                            draws: 0,
+                            losses: 0,
+                            goals: formData.goals || 0,
+                            assists: formData.assists || 0,
+                            yellowCards: formData.yellowCards || 0,
+                            redCards: formData.redCards || 0
+                        }
+                    );
+                }
+            }
+            
+            // Update user object to mark that they have a player profile
+            if (window.AuthManager) {
+                const user = AuthManager.getCurrentUser();
+                if (user) {
+                    user.hasPlayerProfile = true;
+                    user.playerProfileId = formData.id;
+                    localStorage.setItem('user', JSON.stringify(user));
+                }
+            }
+            
             alert('Oyunçu uğurla yaradıldı!');
             window.location.href = 'players.html';
         });

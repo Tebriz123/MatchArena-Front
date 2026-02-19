@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Məhsul Yarat - MatchArena</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#22C55E"/>
+                        <path d="M16 6C10.48 6 6 10.48 6 16C6 21.52 10.48 26 16 26C21.52 26 26 21.52 26 16C26 10.48 21.52 6 16 6ZM16 24C11.59 24 8 20.41 8 16C8 11.59 11.59 8 16 8C20.41 8 24 11.59 24 16C24 20.41 20.41 24 16 24ZM16 10L13.5 12.5L11 10L10 14L14 15L16 18L18 15L22 14L21 10L18.5 12.5L16 10Z" fill="white"/>
+                    </svg>
+                    <span>MatchArena</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link">Məhsullar</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <span class="user-name">Admin</span>
+                <a href="admin-panel.html" class="login-btn">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="form-container">
+            <h1 class="section-title">Yeni Məhsul Yarat</h1>
+            <p class="section-subtitle">Yeni məhsul əlavə edin</p>
+
+            <form class="create-form" id="createProductForm">
+                <div class="form-section">
+                    <h3 class="form-section-title">Əsas Məlumatlar</h3>
+                    
+                    <div class="form-group">
+                        <label for="productName" class="form-label">Məhsul Adı *</label>
+                        <input type="text" id="productName" name="productName" class="form-input" required placeholder="Məs. Futbol Topu - Pro">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category" class="form-label">Kateqoriya *</label>
+                            <select id="category" name="category" class="form-input" required>
+                                <option value="">Kateqoriya seçin</option>
+                                <option value="C001">⚽ Avadanlıq</option>
+                                <option value="C002">👕 Geyim</option>
+                                <option value="C003">🛡️ Qoruyucu</option>
+                                <option value="C004">🎒 Aksesuar</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand" class="form-label">Brend</label>
+                            <input type="text" id="brand" name="brand" class="form-input" placeholder="Məs. Nike, Adidas">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productMainImage" class="form-label">Əsas Şəkil *</label>
+                        <input type="file" id="productMainImage" name="productMainImage" class="form-input" accept="image/*" required>
+                        <small class="form-hint">Məhsulun əsas şəklini yükləyin (PNG, JPG, JPEG)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productGallery" class="form-label">Əlavə Şəkillər</label>
+                        <input type="file" id="productGallery" name="productGallery" class="form-input" accept="image/*" multiple>
+                        <small class="form-hint">Məhsulun əlavə şəkillərini yükləyin (Birdən çox seçə bilərsiniz)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">Təsvir *</label>
+                        <textarea id="description" name="description" class="form-textarea" rows="4" required placeholder="Məhsul haqqında məlumat yazın..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Qiymət və Stok</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="price" class="form-label">Qiymət (₼) *</label>
+                            <input type="number" id="price" name="price" class="form-input" required min="0" step="0.01" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comparePrice" class="form-label">Müqayisə Qiyməti (₼)</label>
+                            <input type="number" id="comparePrice" name="comparePrice" class="form-input" min="0" step="0.01" placeholder="0.00">
+                            <small class="form-hint">Əgər endirim varsa, köhnə qiyməti daxil edin</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="stock" class="form-label">Stok Miqdarı *</label>
+                            <input type="number" id="stock" name="stock" class="form-input" required min="0" placeholder="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sku" class="form-label">SKU Kodu</label>
+                            <input type="text" id="sku" name="sku" class="form-input" placeholder="Məs. FB-PRO-001">
+                            <small class="form-hint">Məhsul eyniləşdirmə kodu</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status" class="form-label">Status *</label>
+                        <select id="status" name="status" class="form-input" required>
+                            <option value="active">Aktiv</option>
+                            <option value="inactive">İnaktiv</option>
+                            <option value="low-stock">Az Stok</option>
+                            <option value="out-of-stock">Stokda Yoxdur</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Rənglər və Ölçülər</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Mövcud Rənglər *</label>
+                        <div class="form-checkbox-group" id="colorsGroup">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL001">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #000000; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Qara
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL002">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #FFFFFF; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Ağ
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL003">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #FF0000; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Qırmızı
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL004">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #0000FF; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Mavi
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL005">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #00FF00; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Yaşıl
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="colors" value="CL006">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="display: inline-block; width: 20px; height: 20px; background: #FFFF00; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span>
+                                    Sarı
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Mövcud Ölçülər *</label>
+                        <div class="form-checkbox-group" id="sizesGroup">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S001">
+                                <span>XS</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S002">
+                                <span>S</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S003">
+                                <span>M</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S004">
+                                <span>L</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S005">
+                                <span>XL</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S006">
+                                <span>39</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S007">
+                                <span>42</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sizes" value="S008">
+                                <span>One Size</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Xüsusiyyətlər</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Əlavə Xüsusiyyətlər</label>
+                        <div class="form-checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="featured" id="featured">
+                                <span>⭐ Seçilmiş Məhsul</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="bestseller" id="bestseller">
+                                <span>🔥 Ən Çox Satılan</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newArrival" id="newArrival">
+                                <span>🆕 Yeni Gəlmə</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="onSale" id="onSale">
+                                <span>💰 Endirimdə</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight" class="form-label">Çəki (qram)</label>
+                        <input type="number" id="weight" name="weight" class="form-input" min="0" placeholder="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="material" class="form-label">Material</label>
+                        <input type="text" id="material" name="material" class="form-input" placeholder="Məs. Dəri, Polyester">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">SEO və Metadata</h3>
+                    
+                    <div class="form-group">
+                        <label for="metaTitle" class="form-label">Meta Başlıq</label>
+                        <input type="text" id="metaTitle" name="metaTitle" class="form-input" placeholder="Axtarış nəticələrində görünəcək başlıq">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="metaDescription" class="form-label">Meta Təsvir</label>
+                        <textarea id="metaDescription" name="metaDescription" class="form-textarea" rows="3" placeholder="Axtarış nəticələrində görünəcək qısa təsvir"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tags" class="form-label">Etiketlər</label>
+                        <input type="text" id="tags" name="tags" class="form-input" placeholder="Məs. futbol, top, avadanlıq (vergüllə ayırın)">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='admin-panel.html'">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Məhsul Yarat</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('createProductForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            
+            // Collect selected colors
+            const colors = [];
+            document.querySelectorAll('input[name="colors"]:checked').forEach(checkbox => {
+                colors.push(checkbox.value);
+            });
+            
+            // Collect selected sizes
+            const sizes = [];
+            document.querySelectorAll('input[name="sizes"]:checked').forEach(checkbox => {
+                sizes.push(checkbox.value);
+            });
+            
+            // Validate colors and sizes
+            if (colors.length === 0) {
+                alert('⚠️ Ən azı bir rəng seçməlisiniz!');
+                document.getElementById('colorsGroup').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            if (sizes.length === 0) {
+                alert('⚠️ Ən azı bir ölçü seçməlisiniz!');
+                document.getElementById('sizesGroup').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
+            // Create product object (in real implementation, this would be sent to API)
+            const productData = {
+                name: formData.get('productName'),
+                category: formData.get('category'),
+                brand: formData.get('brand'),
+                description: formData.get('description'),
+                price: formData.get('price'),
+                comparePrice: formData.get('comparePrice'),
+                stock: formData.get('stock'),
+                sku: formData.get('sku'),
+                status: formData.get('status'),
+                colors: colors,
+                sizes: sizes,
+                featured: document.getElementById('featured').checked,
+                bestseller: document.getElementById('bestseller').checked,
+                newArrival: document.getElementById('newArrival').checked,
+                onSale: document.getElementById('onSale').checked,
+                weight: formData.get('weight'),
+                material: formData.get('material'),
+                metaTitle: formData.get('metaTitle'),
+                metaDescription: formData.get('metaDescription'),
+                tags: formData.get('tags')
+            };
+            
+            console.log('Product Data:', productData);
+            
+            // Show success message
+            alert('Məhsul uğurla yaradıldı! ✓');
+            
+            // Redirect to admin panel
+            window.location.href = 'admin-panel.html';
+        });
+    </script>
+</body>
+</html>

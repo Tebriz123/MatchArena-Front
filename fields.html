@@ -24,6 +24,7 @@
                 <a href="teams.html" class="nav-link">Komandalar</a>
                 <a href="fields.html" class="nav-link active">Meydançalar</a>
                 <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link">Məhsullar</a>
             </div>
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
@@ -36,16 +37,27 @@
 
     <!-- Main Content -->
     <main>
-        <h1 class="section-title">Meydançalar</h1>
-        <p class="section-subtitle">Ən yaxşı meydançaları tap və onlarını rezerv et.</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div>
+                <h1 class="section-title">Meydançalar</h1>
+                <p class="section-subtitle">Ən yaxşı meydançaları tap və onlarını rezerv et.</p>
+            </div>
+            <a href="create-field.html" class="btn btn-primary" id="createFieldBtn" style="display: none; white-space: nowrap;">
+                ⚽ Meydança Yarat
+            </a>
+        </div>
 
         <p class="fields-count">5 meydança tapıldı</p>
 
         <div class="cards-grid">
             <a href="field-detail.html?id=1" class="field-card field-card-link">
-                <div class="card-image"><img src="assets/img/fields/field1.jpg" alt="Mini Futbol Arena"><div class="rating">⭐ 4.5</div></div>
+                <div class="card-image">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Mini Futbol Arena">
+                    <div class="rating">⭐ 4.5</div>
+                    <div class="field-price-badge">120₼/saat</div>
+                </div>
                 <div class="card-content">
-                    <div class="team-badge field-price-badge">120₼/saat</div>
+                    <div class="team-badge">🏀 MEYDANCA</div>
                     <h3 class="card-title">Mini Futbol Arena</h3>
                     <div class="card-subtitle">🏠 Baki • Nizami r., 45A</div>
                     <div class="field-info-text">📏 40 x 20 m • 🕐 08:00 - 23:00</div>
@@ -55,9 +67,13 @@
             </a>
 
             <a href="field-detail.html?id=2" class="field-card field-card-link">
-                <div class="card-image"><img src="assets/img/fields/field2.jpg" alt="Futbol Kompleksi"><div class="rating">⭐ 4.6</div></div>
+                <div class="card-image">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Futbol Kompleksi">
+                    <div class="rating">⭐ 4.6</div>
+                    <div class="field-price-badge">150₼/saat</div>
+                </div>
                 <div class="card-content">
-                    <div class="team-badge field-price-badge">150₼/saat</div>
+                    <div class="team-badge">🏀 MEYDANCA</div>
                     <h3 class="card-title">Futbol Kompleksi</h3>
                     <div class="card-subtitle">🏠 Baki • Heydar Aliyev pr., 123</div>
                     <div class="field-info-text">📏 50 x 30 m • 🕐 07:00 - 22:00</div>
@@ -67,9 +83,13 @@
             </a>
 
             <a href="field-detail.html?id=3" class="field-card field-card-link">
-                <div class="card-image"><img src="assets/img/fields/field3.jpg" alt="Gəncə Futbol Sarayı"><div class="rating">⭐ 4.4</div></div>
+                <div class="card-image">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Gəncə Futbol Sarayı">
+                    <div class="rating">⭐ 4.4</div>
+                    <div class="field-price-badge">100₼/saat</div>
+                </div>
                 <div class="card-content">
-                    <div class="team-badge field-price-badge">100₼/saat</div>
+                    <div class="team-badge">🏀 MEYDANCA</div>
                     <h3 class="card-title">Gəncə Futbol Sarayı</h3>
                     <div class="card-subtitle">🏠 Gəncə • Samədoğlu st., 56</div>
                     <div class="field-info-text">📏 40 x 20 m • 🕐 09:00 - 21:00</div>
@@ -79,9 +99,13 @@
             </a>
 
             <a href="field-detail.html?id=4" class="field-card field-card-link">
-                <div class="card-image"><img src="assets/img/fields/field4.jpg" alt="Sumqayıt Futbol Merkezi"><div class="rating">⭐ 4.3</div></div>
+                <div class="card-image">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Sumqayıt Futbol Merkezi">
+                    <div class="rating">⭐ 4.3</div>
+                    <div class="field-price-badge">110₼/saat</div>
+                </div>
                 <div class="card-content">
-                    <div class="team-badge field-price-badge">110₼/saat</div>
+                    <div class="team-badge">🏀 MEYDANCA</div>
                     <h3 class="card-title">Sumqayıt Futbol Merkezi</h3>
                     <div class="card-subtitle">🏠 Sumqayıt • Azərbaycan pr., 78</div>
                     <div class="field-info-text">📏 40 x 20 m • 🕐 08:00 - 23:00</div>
@@ -91,9 +115,13 @@
             </a>
 
             <a href="field-detail.html?id=5" class="field-card field-card-link">
-                <div class="card-image"><img src="assets/img/fields/field5.jpg" alt="Mingəçevir Arena"><div class="rating">⭐ 4.2</div></div>
+                <div class="card-image">
+                    <img src="assets/img/WhatsApp Şəkil 2025-06-02 saat 15.17.05_c54a2834.jpg" alt="Mingəçevir Arena">
+                    <div class="rating">⭐ 4.2</div>
+                    <div class="field-price-badge">90₼/saat</div>
+                </div>
                 <div class="card-content">
-                    <div class="team-badge field-price-badge">90₼/saat</div>
+                    <div class="team-badge">🏀 MEYDANCA</div>
                     <h3 class="card-title">Mingəçevir Arena</h3>
                     <div class="card-subtitle">🏠 Mingəçevir • Lenin pr., 34</div>
                     <div class="field-info-text">📏 40 x 20 m • 🕐 08:00 - 22:00</div>
@@ -165,5 +193,19 @@
         </div>
     </footer>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Show create button only for users with permission
+        document.addEventListener('DOMContentLoaded', function() {
+            const createFieldBtn = document.getElementById('createFieldBtn');
+            
+            if (createFieldBtn && window.AuthManager) {
+                // Check if user is logged in and has CREATE_FIELD permission
+                if (AuthManager.isLoggedIn() && AuthManager.hasPermission(PERMISSIONS.CREATE_FIELD)) {
+                    createFieldBtn.style.display = 'inline-block';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

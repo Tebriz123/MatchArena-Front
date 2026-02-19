@@ -28,7 +28,11 @@
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
                 <button class="notification-btn">🔔</button>
-                <span class="user-name" id="userName">Admin</span>
+                <div class="user-profile-nav" style="display: none;">
+                    <img id="navUserAvatar" class="user-avatar-nav" src="" alt="Profil şəkli" />
+                    <span class="user-name" id="userName">Admin</span>
+                </div>
+                <span class="user-name" id="userNameFallback" style="display: none;">Admin</span>
                 <button class="login-btn" onclick="logout()">Çıxış</button>
             </div>
         </div>
@@ -104,6 +108,10 @@
                 <button class="admin-tab" data-tab="teams">⚽ Komandalar</button>
                 <button class="admin-tab" data-tab="tournaments">🏆 Turnirler</button>
                 <button class="admin-tab" data-tab="fields">🏟️ Meydançalar</button>
+                <button class="admin-tab" data-tab="products">🛍️ Məhsullar</button>
+                <button class="admin-tab" data-tab="categories">📂 Kateqoriyalar</button>
+                <button class="admin-tab" data-tab="colors">🎨 Rənglər</button>
+                <button class="admin-tab" data-tab="sizes">📏 Ölçülər</button>
                 <button class="admin-tab" data-tab="reviews">⭐ Reytinqlər</button>
                 <button class="admin-tab" data-tab="pending">⚠️ Təsdiq Gözləyir</button>
                 <button class="admin-tab" data-tab="reports">🚨 Şikayətlər</button>
@@ -166,7 +174,7 @@
                                 <td>#1247</td>
                                 <td>
                                     <div class="table-user">
-                                        <div class="table-avatar">K</div>
+                                        <img src="assets/img/players/kamran-aliyev.jpg" alt="Kamran Əliyev" class="table-avatar">
                                         <span>Kamran Əliyev</span>
                                     </div>
                                 </td>
@@ -187,7 +195,7 @@
                                 <td>#1248</td>
                                 <td>
                                     <div class="table-user">
-                                        <div class="table-avatar">E</div>
+                                        <img src="assets/img/players/emil-mammadov.jpg" alt="Emil Məmmədov" class="table-avatar">
                                         <span>Emil Məmmədov</span>
                                     </div>
                                 </td>
@@ -208,7 +216,7 @@
                                 <td>#1249</td>
                                 <td>
                                     <div class="table-user">
-                                        <div class="table-avatar">R</div>
+                                        <img src="assets/img/players/rashad-hasanov.jpg" alt="Rəşad Həsənov" class="table-avatar">
                                         <span>Rəşad Həsənov</span>
                                     </div>
                                 </td>
@@ -258,7 +266,7 @@
                                 <td>#501</td>
                                 <td>
                                     <div class="table-user">
-                                        <div class="table-avatar">Q</div>
+                                        <img src="assets/img/teams/qarabag-legends.jpg" alt="Qarabağ Legends" class="table-avatar">
                                         <span>Qarabağ Legends</span>
                                     </div>
                                 </td>
@@ -279,7 +287,7 @@
                                 <td>#502</td>
                                 <td>
                                     <div class="table-user">
-                                        <div class="table-avatar">N</div>
+                                        <img src="assets/img/teams/neftchi-fc.jpg" alt="Neftçi FC" class="table-avatar">
                                         <span>Neftçi FC</span>
                                     </div>
                                 </td>
@@ -327,7 +335,12 @@
                         <tbody>
                             <tr>
                                 <td>#301</td>
-                                <td>Yay Çempionatı 2026</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/tournaments/yay-chempionati-2026.jpg" alt="Yay Çempionatı 2026" class="table-avatar">
+                                        <span>Yay Çempionatı 2026</span>
+                                    </div>
+                                </td>
                                 <td>Bakı</td>
                                 <td>01.06 - 15.06</td>
                                 <td>12/16</td>
@@ -343,7 +356,12 @@
                             </tr>
                             <tr>
                                 <td>#302</td>
-                                <td>Qış Kuboku</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/tournaments/qish-kuboku.jpg" alt="Qış Kuboku" class="table-avatar">
+                                        <span>Qış Kuboku</span>
+                                    </div>
+                                </td>
                                 <td>Gəncə</td>
                                 <td>15.02 - 20.02</td>
                                 <td>8/8</td>
@@ -389,7 +407,12 @@
                         <tbody>
                             <tr>
                                 <td>#201</td>
-                                <td>Olimpiya Stadionu</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/fields/olimpiya-stadionu.jpg" alt="Olimpiya Stadionu" class="table-avatar">
+                                        <span>Olimpiya Stadionu</span>
+                                    </div>
+                                </td>
                                 <td>Bakı</td>
                                 <td>11x11</td>
                                 <td>Qısa çəmən</td>
@@ -406,7 +429,12 @@
                             </tr>
                             <tr>
                                 <td>#202</td>
-                                <td>Arena Sport Complex</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/fields/arena-sport-complex.jpg" alt="Arena Sport Complex" class="table-avatar">
+                                        <span>Arena Sport Complex</span>
+                                    </div>
+                                </td>
                                 <td>Bakı</td>
                                 <td>7x7</td>
                                 <td>Süni örtük</td>
@@ -443,7 +471,7 @@
                     <div class="review-card">
                         <div class="review-header">
                             <div class="review-user">
-                                <div class="table-avatar">K</div>
+                                <img src="assets/img/players/kamran-aliyev.jpg" alt="Kamran Əliyev" class="table-avatar">
                                 <div>
                                     <div class="review-name">Kamran Əliyev</div>
                                     <div class="review-target">Olimpiya Stadionu haqqında</div>
@@ -464,7 +492,7 @@
                     <div class="review-card">
                         <div class="review-header">
                             <div class="review-user">
-                                <div class="table-avatar">E</div>
+                                <img src="assets/img/players/emil-mammadov.jpg" alt="Emil Məmmədov" class="table-avatar">
                                 <div>
                                     <div class="review-name">Emil Məmmədov</div>
                                     <div class="review-target">Qarabağ Legends komandası haqqında</div>
@@ -485,7 +513,7 @@
                     <div class="review-card flagged">
                         <div class="review-header">
                             <div class="review-user">
-                                <div class="table-avatar">A</div>
+                                <img src="assets/img/players/anar-hasanov.jpg" alt="Anar Həsənov" class="table-avatar">
                                 <div>
                                     <div class="review-name">Anar Həsənov</div>
                                     <div class="review-target">Arena Sport Complex haqqında</div>
@@ -635,6 +663,438 @@
                             <button class="btn btn-secondary" onclick="dismissReport(3)">✓ Bağla</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Products Management Tab -->
+            <div class="admin-tab-content" id="products">
+                <div class="admin-panel-header">
+                    <h3>Məhsulları İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Məhsul axtar..." onkeyup="filterTable('productsTable', this.value)">
+                        <button class="btn btn-primary" onclick="showCreateProductModal()">+ Məhsul Əlavə Et</button>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Məhsul</th>
+                                <th>Kateqoriya</th>
+                                <th>Qiymət</th>
+                                <th>Stok</th>
+                                <th>Status</th>
+                                <th>Əlavə tarixi</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#P001</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/products/football-ball.jpg" alt="Futbol Topu" class="table-avatar">
+                                        <span>Futbol Topu - Pro</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-info">Avadanlıq</span></td>
+                                <td>45.00 ₼</td>
+                                <td>120</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>10.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewProduct('P001')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editProduct('P001')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteProduct('P001')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P002</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/products/football-shoes.jpg" alt="Futbol Ayaqqabısı" class="table-avatar">
+                                        <span>Futbol Ayaqqabısı - Nike</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-warning">Geyim</span></td>
+                                <td>120.00 ₼</td>
+                                <td>45</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>12.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewProduct('P002')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editProduct('P002')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteProduct('P002')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P003</td>
+                                <td>
+                                    <div class="table-user">
+                                        <img src="assets/img/products/shin-guards.jpg" alt="Baldır Qoruyucusu" class="table-avatar">
+                                        <span>Baldır Qoruyucusu</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge badge-primary">Qoruyucu</span></td>
+                                <td>25.00 ₼</td>
+                                <td>5</td>
+                                <td><span class="badge badge-warning">Az Stok</span></td>
+                                <td>15.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewProduct('P003')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editProduct('P003')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteProduct('P003')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Categories Management Tab -->
+            <div class="admin-tab-content" id="categories">
+                <div class="admin-panel-header">
+                    <h3>Kateqoriyaları İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Kateqoriya axtar..." onkeyup="filterTable('categoriesTable', this.value)">
+                        <button class="btn btn-primary" onclick="showCreateCategoryModal()">+ Kateqoriya Əlavə Et</button>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="categoriesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Kateqoriya Adı</th>
+                                <th>İkon</th>
+                                <th>Məhsul Sayı</th>
+                                <th>Status</th>
+                                <th>Əlavə tarixi</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#C001</td>
+                                <td>Avadanlıq</td>
+                                <td><span style="font-size: 1.5rem;">⚽</span></td>
+                                <td>45</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>05.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewCategory('C001')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editCategory('C001')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteCategory('C001')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#C002</td>
+                                <td>Geyim</td>
+                                <td><span style="font-size: 1.5rem;">👕</span></td>
+                                <td>78</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>05.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewCategory('C002')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editCategory('C002')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteCategory('C002')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#C003</td>
+                                <td>Qoruyucu</td>
+                                <td><span style="font-size: 1.5rem;">🛡️</span></td>
+                                <td>23</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>05.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewCategory('C003')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editCategory('C003')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteCategory('C003')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#C004</td>
+                                <td>Aksesuar</td>
+                                <td><span style="font-size: 1.5rem;">🎒</span></td>
+                                <td>12</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>05.01.2026</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Bax" onclick="viewCategory('C004')">👁️</button>
+                                        <button class="btn-icon" title="Redaktə" onclick="editCategory('C004')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteCategory('C004')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Colors Management Tab -->
+            <div class="admin-tab-content" id="colors">
+                <div class="admin-panel-header">
+                    <h3>Rəngləri İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Rəng axtar..." onkeyup="filterTable('colorsTable', this.value)">
+                        <button class="btn btn-primary" onclick="showCreateColorModal()">+ Rəng Əlavə Et</button>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="colorsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Rəng Adı</th>
+                                <th>Rəng Göstərici</th>
+                                <th>Hex Kod</th>
+                                <th>Məhsul Sayı</th>
+                                <th>Status</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#CL001</td>
+                                <td>Qara</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #000000; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#000000</td>
+                                <td>156</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL001')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL001')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CL002</td>
+                                <td>Ağ</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #FFFFFF; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#FFFFFF</td>
+                                <td>142</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL002')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL002')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CL003</td>
+                                <td>Qırmızı</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #FF0000; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#FF0000</td>
+                                <td>98</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL003')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL003')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CL004</td>
+                                <td>Mavi</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #0000FF; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#0000FF</td>
+                                <td>87</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL004')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL004')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CL005</td>
+                                <td>Yaşıl</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #00FF00; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#00FF00</td>
+                                <td>65</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL005')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL005')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CL006</td>
+                                <td>Sarı</td>
+                                <td><span style="display: inline-block; width: 30px; height: 30px; background: #FFFF00; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2);"></span></td>
+                                <td>#FFFF00</td>
+                                <td>43</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editColor('CL006')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteColor('CL006')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sizes Management Tab -->
+            <div class="admin-tab-content" id="sizes">
+                <div class="admin-panel-header">
+                    <h3>Ölçüləri İdarə Et</h3>
+                    <div class="admin-panel-actions">
+                        <input type="text" class="search-input" placeholder="Ölçü axtar..." onkeyup="filterTable('sizesTable', this.value)">
+                        <button class="btn btn-primary" onclick="showCreateSizeModal()">+ Ölçü Əlavə Et</button>
+                    </div>
+                </div>
+                <div class="admin-table-container">
+                    <table class="admin-table" id="sizesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ölçü Adı</th>
+                                <th>Ölçü Kodu</th>
+                                <th>Kateqoriya</th>
+                                <th>Məhsul Sayı</th>
+                                <th>Status</th>
+                                <th>Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#S001</td>
+                                <td>XS</td>
+                                <td>Extra Small</td>
+                                <td><span class="badge badge-info">Geyim</span></td>
+                                <td>45</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S001')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S001')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S002</td>
+                                <td>S</td>
+                                <td>Small</td>
+                                <td><span class="badge badge-info">Geyim</span></td>
+                                <td>78</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S002')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S002')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S003</td>
+                                <td>M</td>
+                                <td>Medium</td>
+                                <td><span class="badge badge-info">Geyim</span></td>
+                                <td>112</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S003')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S003')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S004</td>
+                                <td>L</td>
+                                <td>Large</td>
+                                <td><span class="badge badge-info">Geyim</span></td>
+                                <td>98</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S004')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S004')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S005</td>
+                                <td>XL</td>
+                                <td>Extra Large</td>
+                                <td><span class="badge badge-info">Geyim</span></td>
+                                <td>67</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S005')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S005')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S006</td>
+                                <td>39</td>
+                                <td>EU 39</td>
+                                <td><span class="badge badge-warning">Ayaqqabı</span></td>
+                                <td>34</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S006')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S006')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S007</td>
+                                <td>42</td>
+                                <td>EU 42</td>
+                                <td><span class="badge badge-warning">Ayaqqabı</span></td>
+                                <td>56</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S007')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S007')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#S008</td>
+                                <td>One Size</td>
+                                <td>Universal</td>
+                                <td><span class="badge badge-primary">Aksesuar</span></td>
+                                <td>89</td>
+                                <td><span class="badge badge-success">Aktiv</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Redaktə" onclick="editSize('S008')">✏️</button>
+                                        <button class="btn-icon danger" title="Sil" onclick="deleteSize('S008')">🗑️</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

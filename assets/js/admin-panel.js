@@ -140,6 +140,66 @@ function deleteField(id) {
     showDeleteModal('field', id);
 }
 
+// Product Management
+function viewProduct(id) {
+    window.location.href = `product-detail.html?id=${id}`;
+}
+
+function editProduct(id) {
+    window.location.href = `update-product.html?id=${id}`;
+}
+
+function deleteProduct(id) {
+    showDeleteModal('product', id);
+}
+
+function showCreateProductModal() {
+    window.location.href = 'create-product.html';
+}
+
+// Category Management
+function viewCategory(id) {
+    alert(`Kateqoriya #${id} detalları göstərilir...`);
+}
+
+function editCategory(id) {
+    window.location.href = `update-category.html?id=${id}`;
+}
+
+function deleteCategory(id) {
+    showDeleteModal('category', id);
+}
+
+function showCreateCategoryModal() {
+    window.location.href = 'create-category.html';
+}
+
+// Color Management
+function editColor(id) {
+    window.location.href = `update-color.html?id=${id}`;
+}
+
+function deleteColor(id) {
+    showDeleteModal('color', id);
+}
+
+function showCreateColorModal() {
+    window.location.href = 'create-color.html';
+}
+
+// Size Management
+function editSize(id) {
+    window.location.href = `update-size.html?id=${id}`;
+}
+
+function deleteSize(id) {
+    showDeleteModal('size', id);
+}
+
+function showCreateSizeModal() {
+    window.location.href = 'create-size.html';
+}
+
 // Review Management
 function filterReviews(type) {
     alert(`${type} rəyləri filtrlənir...`);

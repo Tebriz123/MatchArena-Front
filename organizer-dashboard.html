@@ -29,7 +29,10 @@
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
                 <button class="notification-btn">🔔</button>
-                <span class="user-name">İstifadəçi</span>
+                <div class="user-profile-nav" style="display: none;">
+                    <img id="navUserAvatar" class="user-avatar-nav" src="" alt="Profil şəkli" />
+                    <span class="user-name">İstifadəçi</span>
+                </div>
                 <button class="login-btn">Daxil ol</button>
             </div>
         </div>
@@ -46,6 +49,19 @@
         <div class="detail-card" style="margin-bottom: 2rem;">
             <h2 class="detail-card-title">Hesab Məlumatları</h2>
             <div class="detail-info-card">
+                <div class="detail-info-row">
+                    <span class="info-label">Profil Şəkli</span>
+                    <div class="info-value" style="display: flex; align-items: center; gap: 1rem;">
+                        <img id="userProfileImage" class="user-profile-image" src="" alt="Profil şəkli" style="display: none; width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-color);" />
+                        <div id="noProfileImage" style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-color), #16a34a); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: bold;">
+                            ?
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <button id="updateProfileImageBtn" class="btn btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem;">📷 Şəkli Yenilə</button>
+                            <button id="removeProfileImageBtn" class="btn btn-outline" style="font-size: 0.875rem; padding: 0.5rem 1rem; display: none;">🗑️ Şəkli Sil</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="detail-info-row">
                     <span class="info-label">Ad</span>
                     <span class="info-value" id="userName">-</span>
@@ -80,134 +96,6 @@
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/auth.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is logged in
-            if (!AuthManager.isLoggedIn()) {
-                window.location.href = 'login.html';
-                return;
-            }
-
-            const user = AuthManager.getCurrentUser();
-            const role = user.role;
-
-            // Update page title and info
-            document.getElementById('dashboardTitle').textContent = `${AuthManager.getRoleDisplayName(role)} Paneli`;
-            document.getElementById('dashboardSubtitle').textContent = `Xoş gəlmisiniz, ${user.name}`;
-            document.getElementById('userName').textContent = user.name;
-            document.getElementById('userEmail').textContent = user.email;
-            document.getElementById('userRole').textContent = AuthManager.getRoleDisplayName(role);
-
-            // Show available actions based on role
-            const permissionsGrid = document.getElementById('permissionsGrid');
-            const actions = [];
-
-            if (AuthManager.hasPermission(PERMISSIONS.CREATE_TEAM)) {
-                actions.push({
-                    title: 'Komanda Yarat',
-                    icon: '👥',
-                    link: 'create-team.html',
-                    color: 'var(--primary-color)'
-                });
-            }
-
-            if (AuthManager.hasPermission(PERMISSIONS.CREATE_TOURNAMENT)) {
-                actions.push({
-                    title: 'Turnir Yarat',
-                    icon: '🏆',
-                    link: 'create-tournament.html',
-                    color: '#3b82f6'
-                });
-            }
-
-            if (AuthManager.hasPermission(PERMISSIONS.CREATE_FIELD)) {
-                actions.push({
-                    title: 'Meydança Yarat',
-                    icon: '⚽',
-                    link: 'create-field.html',
-                    color: '#f97316'
-                });
-            }
-
-            if (AuthManager.hasPermission(PERMISSIONS.ACCESS_ADMIN_PANEL)) {
-                actions.push({
-                    title: 'Admin Panel',
-                    icon: '🔐',
-                    link: 'admin-panel.html',
-                    color: '#ef4444'
-                });
-            }
-
-            actions.forEach(action => {
-                const actionCard = document.createElement('a');
-                actionCard.href = action.link;
-                actionCard.style.cssText = `
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    padding: 1.5rem;
-                    background: rgba(34, 197, 94, 0.1);
-                    border: 1px solid ${action.color};
-                    border-radius: 0.5rem;
-                    text-decoration: none;
-                    color: inherit;
-                    transition: all 0.3s ease;
-                `;
-                actionCard.innerHTML = `
-                    <span style="font-size: 2rem;">${action.icon}</span>
-                    <span style="font-weight: 600; color: ${action.color};">${action.title}</span>
-                `;
-                actionCard.onmouseover = function() {
-                    this.style.transform = 'translateY(-2px)';
-                    this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-                };
-                actionCard.onmouseout = function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                };
-                permissionsGrid.appendChild(actionCard);
-            });
-
-            if (actions.length === 0) {
-                permissionsGrid.innerHTML = '<p style="color: var(--text-muted);">Hal-hazırda əlavə icazələriniz yoxdur.</p>';
-            }
-
-            // Show all permissions
-            const featuresList = document.getElementById('featuresList');
-            const rolePermissions = ROLE_PERMISSIONS[role] || [];
-            
-            const featureNames = {
-                [PERMISSIONS.CREATE_TOURNAMENT]: '🏆 Turnir yaratma',
-                [PERMISSIONS.EDIT_TOURNAMENT]: '✏️ Turnir redaktəsi',
-                [PERMISSIONS.DELETE_TOURNAMENT]: '🗑️ Turnir silmə',
-                [PERMISSIONS.MANAGE_TOURNAMENT]: '⚙️ Turnir idarəsi',
-                [PERMISSIONS.CREATE_TEAM]: '👥 Komanda yaratma',
-                [PERMISSIONS.EDIT_TEAM]: '✏️ Komanda redaktəsi',
-                [PERMISSIONS.DELETE_TEAM]: '🗑️ Komanda silmə',
-                [PERMISSIONS.MANAGE_TEAM_MEMBERS]: '👨‍👩‍👧‍👦 Komanda üzvlərinin idarəsi',
-                [PERMISSIONS.CREATE_FIELD]: '⚽ Meydança yaratma',
-                [PERMISSIONS.EDIT_FIELD]: '✏️ Meydança redaktəsi',
-                [PERMISSIONS.DELETE_FIELD]: '🗑️ Meydança silmə',
-                [PERMISSIONS.MANAGE_BOOKINGS]: '📅 Rezervasiya idarəsi',
-                [PERMISSIONS.ACCESS_ADMIN_PANEL]: '🔐 Admin panelinə giriş',
-                [PERMISSIONS.MANAGE_USERS]: '👤 İstifadəçi idarəsi',
-                [PERMISSIONS.MANAGE_REVIEWS]: '⭐ Rəy idarəsi',
-                [PERMISSIONS.VIEW_REPORTS]: '📊 Hesabat görüntüləmə',
-                [PERMISSIONS.VIEW_CONTENT]: '👁️ Məzmun görüntüləmə',
-                [PERMISSIONS.CREATE_REVIEW]: '💬 Rəy yazma',
-                [PERMISSIONS.EDIT_PROFILE]: '✏️ Profil redaktəsi'
-            };
-
-            rolePermissions.forEach(permission => {
-                const featureItem = document.createElement('div');
-                featureItem.className = 'service-item';
-                featureItem.innerHTML = `
-                    <span class="service-check">✓</span>
-                    <span>${featureNames[permission] || permission}</span>
-                `;
-                featuresList.appendChild(featureItem);
-            });
-        });
-    </script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 </html>

@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Səhifə yükləndikdə temayı başlat
   initTheme();
 
+  // Update navbar with user profile
+  updateNavbarUserProfile();
+
   // Komandalar səhifəsində filtreleme
   const searchInput = document.getElementById('search-input');
   const cityFilter = document.getElementById('city-filter');
@@ -397,3 +400,36 @@ document.addEventListener('DOMContentLoaded', function() {
     renderTournaments(data.tournaments);
   }
 });
+
+// Update Navbar User Profile with Image
+function updateNavbarUserProfile() {
+  // Check if user is logged in
+  const user = JSON.parse(localStorage.getItem('user'));
+  
+  if (!user) return;
+
+  // Get navbar elements
+  const navUserAvatar = document.getElementById('navUserAvatar');
+  const userProfileNav = document.querySelector('.user-profile-nav');
+  const userNameSpan = userProfileNav ? userProfileNav.querySelector('.user-name') : null;
+
+  if (!userProfileNav) return;
+
+  // Get profile image URL
+  const profileImageUrl = localStorage.getItem(`profileImage_${user.id}`) || 
+                         localStorage.getItem(`faceImage_${user.email}`) || 
+                         user.faceImage || 
+                         user.profileImage;
+
+  if (profileImageUrl && navUserAvatar) {
+    // Show profile image
+    navUserAvatar.src = profileImageUrl;
+    navUserAvatar.style.display = 'block';
+    userProfileNav.style.display = 'flex';
+    
+    // Update user name
+    if (userNameSpan) {
+      userNameSpan.textContent = user.name || 'İstifadəçi';
+    }
+  }
+}

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ölçünü Yenilə - MatchArena</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#22C55E"/>
+                        <path d="M16 6C10.48 6 6 10.48 6 16C6 21.52 10.48 26 16 26C21.52 26 26 21.52 26 16C26 10.48 21.52 6 16 6ZM16 24C11.59 24 8 20.41 8 16C8 11.59 11.59 8 16 8C20.41 8 24 11.59 24 16C24 20.41 20.41 24 16 24ZM16 10L13.5 12.5L11 10L10 14L14 15L16 18L18 15L22 14L21 10L18.5 12.5L16 10Z" fill="white"/>
+                    </svg>
+                    <span>MatchArena</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="players.html" class="nav-link">Oyunçular</a>
+                <a href="teams.html" class="nav-link">Komandalar</a>
+                <a href="fields.html" class="nav-link">Meydançalar</a>
+                <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link">Məhsullar</a>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle">🌐</button>
+                <button class="notification-btn">🔔</button>
+                <span class="user-name">Admin</span>
+                <a href="admin-panel.html" class="login-btn">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="form-container">
+            <h1 class="section-title">Ölçünü Yenilə</h1>
+            <p class="section-subtitle">Ölçü məlumatlarını redaktə edin</p>
+
+            <form class="create-form" id="updateSizeForm">
+                <!-- Hidden field for size ID -->
+                <input type="hidden" id="sizeId" name="sizeId">
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Əsas Məlumatlar</h3>
+                    
+                    <div class="form-group">
+                        <label for="sizeName" class="form-label">Ölçü Adı *</label>
+                        <input type="text" id="sizeName" name="sizeName" class="form-input" required placeholder="Məs. M, L, XL, 42">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sizeCode" class="form-label">Ölçü Kodu *</label>
+                        <input type="text" id="sizeCode" name="sizeCode" class="form-input" required placeholder="Məs. Medium, Large, EU 42">
+                        <small class="form-hint">Ölçünün tam adı və ya açıqlaması</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sizeCategory" class="form-label">Kateqoriya *</label>
+                        <select id="sizeCategory" name="sizeCategory" class="form-input" required>
+                            <option value="">Kateqoriya seçin</option>
+                            <option value="clothing">👕 Geyim</option>
+                            <option value="shoes">👟 Ayaqqabı</option>
+                            <option value="accessories">🎒 Aksesuar</option>
+                            <option value="equipment">⚽ Avadanlıq</option>
+                            <option value="universal">📏 Universal</option>
+                        </select>
+                        <small class="form-hint">Bu ölçü hansı növ məhsullara aiddir</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status" class="form-label">Status *</label>
+                        <select id="status" name="status" class="form-input" required>
+                            <option value="active">Aktiv</option>
+                            <option value="inactive">İnaktiv</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Məhsul Sayı</label>
+                        <div style="padding: 12px; background: linear-gradient(145deg, #1a1f2e, #232a3b); border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                            <span style="color: rgba(255,255,255,0.9); font-weight: 600; font-size: 1.1rem;" id="productCount">0</span>
+                            <span style="color: rgba(255,255,255,0.5); margin-left: 8px;">məhsulda istifadə olunur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Əlavə Məlumatlar</h3>
+                    
+                    <div class="form-group">
+                        <label for="description" class="form-label">Təsvir</label>
+                        <textarea id="description" name="description" class="form-textarea" rows="2" placeholder="Ölçü haqqında əlavə məlumat (ixtiyari)"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sortOrder" class="form-label">Sıralama</label>
+                            <input type="number" id="sortOrder" name="sortOrder" class="form-input" min="0" value="0" placeholder="0">
+                            <small class="form-hint">Ölçülərin görünmə ardıcıllığı</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="equivalentSize" class="form-label">Ekvivalent Ölçü</label>
+                            <input type="text" id="equivalentSize" name="equivalentSize" class="form-input" placeholder="Məs. US 8 = EU 39">
+                            <small class="form-hint">Digər standartlarda ekvivalenti</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">Ölçü Parametrləri (ixtiyari)</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="chestSize" class="form-label">Döş (sm)</label>
+                            <input type="number" id="chestSize" name="chestSize" class="form-input" min="0" step="0.1" placeholder="Məs. 92">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="waistSize" class="form-label">Bel (sm)</label>
+                            <input type="number" id="waistSize" name="waistSize" class="form-input" min="0" step="0.1" placeholder="Məs. 76">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="heightSize" class="form-label">Boy (sm)</label>
+                            <input type="number" id="heightSize" name="heightSize" class="form-input" min="0" step="0.1" placeholder="Məs. 175">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="measurements" class="form-label">Ölçü Cədvəli</label>
+                        <textarea id="measurements" name="measurements" class="form-textarea" rows="3" placeholder="Əlavə ölçü məlumatları (JSON formatında və ya sərbəst mətn)"></textarea>
+                        <small class="form-hint">Məs: {"length": "70cm", "sleeve": "60cm"}</small>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='admin-panel.html'">Ləğv et</button>
+                    <button type="submit" class="btn btn-primary">Ölçünü Yenilə</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        // Load size data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sizeId = urlParams.get('id');
+            
+            if (sizeId) {
+                loadSizeData(sizeId);
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('updateSizeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            const sizeData = {
+                id: document.getElementById('sizeId').value,
+                name: formData.get('sizeName'),
+                code: formData.get('sizeCode'),
+                category: formData.get('sizeCategory'),
+                status: formData.get('status'),
+                description: formData.get('description'),
+                sortOrder: formData.get('sortOrder'),
+                equivalentSize: formData.get('equivalentSize'),
+                measurements: {
+                    chest: formData.get('chestSize'),
+                    waist: formData.get('waistSize'),
+                    height: formData.get('heightSize'),
+                    custom: formData.get('measurements')
+                }
+            };
+            
+            console.log('Updated Size Data:', sizeData);
+            
+            alert('Ölçü uğurla yeniləndi! ✓');
+            window.location.href = 'admin-panel.html';
+        });
+
+        function loadSizeData(sizeId) {
+            // Demo data for different sizes
+            const demoSizes = {
+                'S001': {
+                    name: 'XS',
+                    code: 'Extra Small',
+                    category: 'clothing',
+                    status: 'active',
+                    description: 'Çox kiçik ölçü',
+                    sortOrder: 1,
+                    equivalentSize: 'EU 34, UK 6',
+                    productCount: 45,
+                    measurements: {
+                        chest: 84,
+                        waist: 68,
+                        height: 160
+                    }
+                },
+                'S002': {
+                    name: 'S',
+                    code: 'Small',
+                    category: 'clothing',
+                    status: 'active',
+                    description: 'Kiçik ölçü',
+                    sortOrder: 2,
+                    equivalentSize: 'EU 36, UK 8',
+                    productCount: 78,
+                    measurements: {
+                        chest: 88,
+                        waist: 72,
+                        height: 165
+                    }
+                },
+                'S003': {
+                    name: 'M',
+                    code: 'Medium',
+                    category: 'clothing',
+                    status: 'active',
+                    description: 'Orta ölçü',
+                    sortOrder: 3,
+                    equivalentSize: 'EU 38-40, UK 10-12',
+                    productCount: 112,
+                    measurements: {
+                        chest: 92,
+                        waist: 76,
+                        height: 170
+                    }
+                },
+                'S004': {
+                    name: 'L',
+                    code: 'Large',
+                    category: 'clothing',
+                    status: 'active',
+                    description: 'Böyük ölçü',
+                    sortOrder: 4,
+                    equivalentSize: 'EU 42-44, UK 14-16',
+                    productCount: 98,
+                    measurements: {
+                        chest: 98,
+                        waist: 82,
+                        height: 175
+                    }
+                },
+                'S005': {
+                    name: 'XL',
+                    code: 'Extra Large',
+                    category: 'clothing',
+                    status: 'active',
+                    description: 'Çox böyük ölçü',
+                    sortOrder: 5,
+                    equivalentSize: 'EU 46-48, UK 18-20',
+                    productCount: 67,
+                    measurements: {
+                        chest: 104,
+                        waist: 88,
+                        height: 180
+                    }
+                },
+                'S006': {
+                    name: '39',
+                    code: 'EU 39',
+                    category: 'shoes',
+                    status: 'active',
+                    description: 'Ayaqqabı ölçüsü 39',
+                    sortOrder: 6,
+                    equivalentSize: 'US 6, UK 6',
+                    productCount: 34,
+                    measurements: {}
+                },
+                'S007': {
+                    name: '42',
+                    code: 'EU 42',
+                    category: 'shoes',
+                    status: 'active',
+                    description: 'Ayaqqabı ölçüsü 42',
+                    sortOrder: 7,
+                    equivalentSize: 'US 8.5, UK 8',
+                    productCount: 56,
+                    measurements: {}
+                },
+                'S008': {
+                    name: 'One Size',
+                    code: 'Universal',
+                    category: 'universal',
+                    status: 'active',
+                    description: 'Universal ölçü, bütün ölçülərə uyğun',
+                    sortOrder: 8,
+                    equivalentSize: 'Hamıya uyğun',
+                    productCount: 89,
+                    measurements: {}
+                }
+            };
+
+            const size = demoSizes[sizeId] || demoSizes['S003'];
+            
+            // Fill form fields
+            document.getElementById('sizeId').value = sizeId;
+            document.getElementById('sizeName').value = size.name;
+            document.getElementById('sizeCode').value = size.code;
+            document.getElementById('sizeCategory').value = size.category;
+            document.getElementById('status').value = size.status;
+            document.getElementById('description').value = size.description || '';
+            document.getElementById('sortOrder').value = size.sortOrder;
+            document.getElementById('equivalentSize').value = size.equivalentSize || '';
+            document.getElementById('productCount').textContent = size.productCount;
+            
+            // Fill measurements if available
+            if (size.measurements) {
+                if (size.measurements.chest) document.getElementById('chestSize').value = size.measurements.chest;
+                if (size.measurements.waist) document.getElementById('waistSize').value = size.measurements.waist;
+                if (size.measurements.height) document.getElementById('heightSize').value = size.measurements.height;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -24,6 +24,7 @@
                 <a href="teams.html" class="nav-link">Komandalar</a>
                 <a href="fields.html" class="nav-link">Meydançalar</a>
                 <a href="tournaments.html" class="nav-link">Turnirler</a>
+                <a href="products.html" class="nav-link">Məhsullar</a>
             </div>
             <div class="nav-right">
                 <button class="theme-toggle">🌐</button>
@@ -102,6 +103,42 @@
                         </label>
                     </div>
 
+                    <!-- Face Registration -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            👤 Üz şəkli (Opsional - təhlükəsiz giriş üçün)
+                            <small class="form-hint">Gələcəkdə üzə tanıma ilə daxil ola bilərsiniz</small>
+                        </label>
+                        
+                        <div class="face-registration-wrapper" id="faceRegisterWrapper">
+                            <div class="face-camera-wrapper" id="faceCameraWrapper" style="display: none;">
+                                <video id="faceRegisterVideo" autoplay playsinline></video>
+                                <canvas id="faceRegisterCanvas" style="display: none;"></canvas>
+                            </div>
+                            
+                            <div id="facePreviewWrapper" style="display: none;">
+                                <img id="facePreview" class="face-preview-img" alt="Üz şəkli" />
+                            </div>
+
+                            <div class="face-controls">
+                                <button type="button" class="btn btn-outline" id="startFaceCapture">
+                                    📷 Üz şəkli çək
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="captureFaceRegister" style="display: none;">
+                                    📸 Şəkil çək
+                                </button>
+                                <button type="button" class="btn btn-outline" id="retakeFacePhoto" style="display: none;">
+                                    🔄 Yenidən çək
+                                </button>
+                                <button type="button" class="btn btn-outline" id="removeFacePhoto" style="display: none;">
+                                    🗑️ Sil
+                                </button>
+                            </div>
+                            <div id="faceRegisterStatus" class="face-status"></div>
+                        </div>
+                        <input type="hidden" id="faceImageData" name="faceImageData">
+                    </div>
+
                     <button type="submit" class="btn btn-primary auth-btn">Qeydiyyatdan keç</button>
                 </form>
 
@@ -129,6 +166,8 @@
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/auth.js"></script>
+    <script src="assets/js/demo-data.js"></script>
+    <script src="assets/js/face-recognition.js"></script>
     <script src="assets/js/register.js"></script>
 </body>
 </html>
